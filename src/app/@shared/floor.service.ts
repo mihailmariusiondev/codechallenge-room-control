@@ -12,7 +12,7 @@ export class FloorService {
 
   getFloors(): Observable<Floor[]> {
     return this.httpClient.get<Floor[]>('/floors').pipe(
-      map((body: any) => body.value),
+      map((body: Floor[]) => body),
       catchError(() => of([]))
     );
   }
