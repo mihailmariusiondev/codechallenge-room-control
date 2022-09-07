@@ -6,6 +6,7 @@ export interface Floor {
 
 export interface Room {
   id: number;
+  name: string;
   maximum_capacity: number;
   occupancy: number;
 }

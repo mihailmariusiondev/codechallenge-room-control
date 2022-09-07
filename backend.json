@@ -6,16 +6,19 @@
       "rooms": [
         {
           "id": 1,
+          "name": "Sala 1 Planta 1",
           "maximum_capacity": 30,
           "occupancy": 30
         },
         {
           "id": 2,
+          "name": "Sala 2 Planta 1",
           "maximum_capacity": 30,
           "occupancy": 30
         },
         {
           "id": 3,
+          "name": "Sala 3 Planta 1",
           "maximum_capacity": 30,
           "occupancy": 30
         }
@@ -27,18 +30,21 @@
       "rooms": [
         {
           "id": 1,
-          "maximum_capacity": 30,
-          "occupancy": 30
+          "name": "Sala 1 Planta 2",
+          "maximum_capacity": 50,
+          "occupancy": 15
         },
         {
           "id": 2,
-          "maximum_capacity": 30,
-          "occupancy": 30
+          "name": "Sala 2 Planta 2",
+          "maximum_capacity": 50,
+          "occupancy": 15
         },
         {
           "id": 3,
-          "maximum_capacity": 30,
-          "occupancy": 30
+          "name": "Sala 3 Planta 2",
+          "maximum_capacity": 50,
+          "occupancy": 15
         }
       ]
     }

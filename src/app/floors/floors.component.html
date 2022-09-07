@@ -1,28 +1,23 @@
-<div fxLayout="column" class="container">
-  <div fxFlex="100%" fxFlexFill fxLayoutAlign="start center">
-    <h1>Salas</h1>
-  </div>
-
-  <div fxFlex="100%" fxFlexFill fxLayoutAlign="start center">
-    <mat-form-field appearance="fill">
-      <mat-label>Planta</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let floor of floors" [value]="floor.name">
-          {{ floor.name }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
+<div class="container">
+  <h1>Salas</h1>
 
   <mat-divider></mat-divider>
+  <br />
 
-  <mat-card>
-    <mat-card-content>
-      <mat-card-title translate>Hello world !</mat-card-title>
-      <mat-card-subtitle>
-        <app-loader [isLoading]="isLoading" [size]="1.5"></app-loader>
-        {{ floors | json }}
-      </mat-card-subtitle>
-    </mat-card-content>
-  </mat-card>
+  <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayout.xs="column" fxLayoutGap="20px">
+    <div fxFlex="100%" fxFlexFill fxLayoutAlign="start center">
+      <mat-form-field appearance="fill">
+        <mat-label>Planta</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let floor of floors" [value]="floor" (onSelectionChange)="onFloorChange($event)">
+            {{ floor.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="20" fxFlex.lg="15" fxFlex.sm="30" *ngFor="let room of selectedFloor.rooms">
+      <app-room [room]="room" [isLoading]="isLoading"></app-room>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> {{ room.name }} </mat-card-title>
+    <mat-card-subtitle> {{ room.name }} </mat-card-subtitle>
+    <app-loader [isLoading]="isLoading" [size]="1.5"></app-loader>
+  </mat-card-header>
+
+  <!-- <a [routerLink]="['/heroes', heroe.id]">
+      <img mat-card-image
+           [src]="heroe | imagen">
+  </a> -->
+
+  <mat-card-content>
+    <h3>{{ room.name }}</h3>
+    <p>
+      <strong>Primera aparición: </strong>{{ room.name }}
+      <br />
+      <strong>Personajes: </strong>{{ room.name }}
+    </p>
+    <br />
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button color="warn">Leer más...</button>
+    <button mat-button color="info">Editar</button>
+  </mat-card-actions>
+</mat-card>
