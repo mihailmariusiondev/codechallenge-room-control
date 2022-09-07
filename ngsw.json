@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1662564374601,
-  "index": "/index.html",
+  "timestamp": 1662565100429,
+  "index": "https://mihailmariusiondev.github.io/codechallenge-room-control/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -11,14 +11,14 @@
         "ignoreVary": true
       },
       "urls": [
-        "/10.07ef384f0c0b3220.js",
-        "/favicon.ico",
-        "/index.html",
-        "/main.38c47e38661bad4f.js",
-        "/manifest.webmanifest",
-        "/polyfills.af8ddce1628aa949.js",
-        "/runtime.a28233fa8332832c.js",
-        "/styles.4af257e30f7dc436.css"
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/10.07ef384f0c0b3220.js",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/favicon.ico",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/index.html",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/main.38c47e38661bad4f.js",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/manifest.webmanifest",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/polyfills.af8ddce1628aa949.js",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/runtime.a28233fa8332832c.js",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/styles.4af257e30f7dc436.css"
       ],
       "patterns": []
     },
@@ -30,32 +30,32 @@
         "ignoreVary": true
       },
       "urls": [
-        "/MaterialIcons-Regular.14b0bb77466d9f38.woff",
-        "/MaterialIcons-Regular.d1b99623aaa86364.woff2",
-        "/MaterialIcons-Regular.fa58bcb97f2ed321.ttf",
-        "/apple-touch-icon.png",
-        "/assets/ngx-rocket-logo.png",
-        "/assets/ngx-rocket-logo@192.png"
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/MaterialIcons-Regular.14b0bb77466d9f38.woff",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/MaterialIcons-Regular.d1b99623aaa86364.woff2",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/MaterialIcons-Regular.fa58bcb97f2ed321.ttf",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/apple-touch-icon.png",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/assets/ngx-rocket-logo.png",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/assets/ngx-rocket-logo@192.png"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/10.07ef384f0c0b3220.js": "fcd35ae627700c1d83404c4d58f89953d6f5399c",
-    "/MaterialIcons-Regular.14b0bb77466d9f38.woff": "e5fa525648c74213cdeb8554aa77057f0c4d8488",
-    "/MaterialIcons-Regular.d1b99623aaa86364.woff2": "7e67acf56f6d527980504c3d0dd2a30d706e5339",
-    "/MaterialIcons-Regular.fa58bcb97f2ed321.ttf": "b582b869fe05f35f5a1d08cdf50b2b5eb37bae44",
-    "/apple-touch-icon.png": "229df2094cc590088de00ea97a1eb4e4493101d2",
-    "/assets/ngx-rocket-logo.png": "0ac53fd27406fe5a36e68285315fb0012e54058e",
-    "/assets/ngx-rocket-logo@192.png": "461b730f9c6dc818f8af9acbe62dfde24dc02d7a",
-    "/favicon.ico": "b65083d46bbf63692d5d2cdd69622e6d7ecae317",
-    "/index.html": "cb3c9752900cad9be8f51bfc5476d14f9beed1d2",
-    "/main.38c47e38661bad4f.js": "005e9f8d2d0148f3b47d9267193c57b4f7fdcbad",
-    "/manifest.webmanifest": "7db208ad4941b8ee8c3e7b0d1fe5378d8c6f9b94",
-    "/polyfills.af8ddce1628aa949.js": "9eb409eb319ded159f50addee3022832b36d184a",
-    "/runtime.a28233fa8332832c.js": "c31cf6da5ccac8bca58ab7e23890da7a455111b5",
-    "/styles.4af257e30f7dc436.css": "3a1b27d02050cda63dddc16a0fca0fbd7bf375cf"
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/10.07ef384f0c0b3220.js": "fcd35ae627700c1d83404c4d58f89953d6f5399c",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/MaterialIcons-Regular.14b0bb77466d9f38.woff": "e5fa525648c74213cdeb8554aa77057f0c4d8488",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/MaterialIcons-Regular.d1b99623aaa86364.woff2": "7e67acf56f6d527980504c3d0dd2a30d706e5339",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/MaterialIcons-Regular.fa58bcb97f2ed321.ttf": "b582b869fe05f35f5a1d08cdf50b2b5eb37bae44",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/apple-touch-icon.png": "229df2094cc590088de00ea97a1eb4e4493101d2",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/assets/ngx-rocket-logo.png": "0ac53fd27406fe5a36e68285315fb0012e54058e",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/assets/ngx-rocket-logo@192.png": "461b730f9c6dc818f8af9acbe62dfde24dc02d7a",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/favicon.ico": "b65083d46bbf63692d5d2cdd69622e6d7ecae317",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/index.html": "f29a8cd2e4c09698194369183e0aa6f1981f0e52",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/main.38c47e38661bad4f.js": "005e9f8d2d0148f3b47d9267193c57b4f7fdcbad",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/manifest.webmanifest": "7db208ad4941b8ee8c3e7b0d1fe5378d8c6f9b94",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/polyfills.af8ddce1628aa949.js": "9eb409eb319ded159f50addee3022832b36d184a",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/runtime.a28233fa8332832c.js": "c31cf6da5ccac8bca58ab7e23890da7a455111b5",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/styles.4af257e30f7dc436.css": "3a1b27d02050cda63dddc16a0fca0fbd7bf375cf"
   },
   "navigationUrls": [
     {
