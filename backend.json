@@ -1,0 +1,46 @@
+{
+  "floors": [
+    {
+      "id": 1,
+      "name": "Planta 1",
+      "rooms": [
+        {
+          "id": 1,
+          "maximum_capacity": 30,
+          "occupancy": 30
+        },
+        {
+          "id": 2,
+          "maximum_capacity": 30,
+          "occupancy": 30
+        },
+        {
+          "id": 3,
+          "maximum_capacity": 30,
+          "occupancy": 30
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Planta 2",
+      "rooms": [
+        {
+          "id": 1,
+          "maximum_capacity": 30,
+          "occupancy": 30
+        },
+        {
+          "id": 2,
+          "maximum_capacity": 30,
+          "occupancy": 30
+        },
+        {
+          "id": 3,
+          "maximum_capacity": 30,
+          "occupancy": 30
+        }
+      ]
+    }
+  ]
+}

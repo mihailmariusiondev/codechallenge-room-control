@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@app/material.module';
 
-
 import { I18nModule } from '@app/i18n';
 import { ShellComponent } from './shell.component';
 
@@ -21,13 +20,10 @@ describe('ShellComponent', () => {
         BrowserAnimationsModule,
         FlexLayoutModule,
         MaterialModule,
-        RouterTestingModule
+        RouterTestingModule,
       ],
-      declarations: [
-        ShellComponent
-      ]
-  })
-    .compileComponents();
+      declarations: [ShellComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

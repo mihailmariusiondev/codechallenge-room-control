@@ -3,19 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
-
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
-  styleUrls: ['./shell.component.scss']
+  styleUrls: ['./shell.component.scss'],
 })
 export class ShellComponent implements OnInit {
+  constructor(private router: Router, private titleService: Title, private breakpoint: BreakpointObserver) {}
 
-  constructor(private router: Router,
-              private titleService: Title,
-              private breakpoint: BreakpointObserver) { }
-
-  ngOnInit() { }
+  ngOnInit() {}
 
   get isMobile(): boolean {
     return this.breakpoint.isMatched(Breakpoints.Small) || this.breakpoint.isMatched(Breakpoints.XSmall);

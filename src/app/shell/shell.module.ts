@@ -9,17 +9,7 @@ import { MaterialModule } from '@app/material.module';
 import { ShellComponent } from './shell.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule,
-    FlexLayoutModule,
-    MaterialModule,
-    I18nModule,
-    RouterModule
-  ],
-  declarations: [
-    ShellComponent
-  ]
+  imports: [CommonModule, TranslateModule, FlexLayoutModule, MaterialModule, I18nModule, RouterModule],
+  declarations: [ShellComponent],
 })
-export class ShellModule {
-}
+export class ShellModule {}
