@@ -9,9 +9,10 @@ import { MaterialModule } from '@app/material.module';
 import { FloorsRoutingModule } from './floors-routing.module';
 import { FloorsComponent } from './floors.component';
 import { RoomComponent } from './components/room/room.component';
+import { RoomDialogBoxComponent } from './components/room-dialog-box/room-dialog-box.component';
 
 @NgModule({
   imports: [CommonModule, TranslateModule, FlexLayoutModule, SharedModule, MaterialModule, FloorsRoutingModule],
-  declarations: [FloorsComponent, RoomComponent],
+  declarations: [FloorsComponent, RoomComponent, RoomDialogBoxComponent],
 })
 export class FloorsModule {}

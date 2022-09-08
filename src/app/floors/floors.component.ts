@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatOptionSelectionChange } from '@angular/material/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FloorService } from '@app/@shared';
 import { Floor } from '@app/@shared/models/floor';
 import { finalize } from 'rxjs';
-// import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
+import { RoomDialogBoxComponent } from './components/room-dialog-box/room-dialog-box.component';
 
 @Component({
   selector: 'app-floors',
@@ -43,13 +43,14 @@ export class FloorsComponent implements OnInit {
   }
 
   openDialog() {
-    // const dialogRef = this.dialog.open(DialogBoxComponent, {
-    //   width: '250px',
-    //   data: { action: action, user: user }
-    // });
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result) {
-    //   }
-    // });
+    const dialogRef = this.dialog.open(RoomDialogBoxComponent, {
+      width: '500px',
+      height: '500px',
+      // data: { floor: this.selectedFloor }
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
