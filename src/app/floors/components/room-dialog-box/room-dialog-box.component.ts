@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Floor } from '@app/@shared/models/floor';
 
 @Component({
   selector: 'app-room-dialog-box',
@@ -7,7 +9,15 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./room-dialog-box.component.scss'],
 })
 export class RoomDialogBoxComponent implements OnInit {
-  constructor(public dialogRef: MatDialogRef<RoomDialogBoxComponent>) {}
+  floor!: Floor;
+
+  constructor(
+    public dialogRef: MatDialogRef<RoomDialogBoxComponent>,
+    private formBuilder: FormBuilder,
+    @Inject(MAT_DIALOG_DATA) public data: Floor
+  ) {
+    this.floor = data;
+  }
 
   ngOnInit(): void {}
 }
