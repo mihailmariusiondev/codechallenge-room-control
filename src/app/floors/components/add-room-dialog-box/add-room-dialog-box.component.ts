@@ -29,6 +29,6 @@ export class AddRoomDialogBoxComponent {
   }
 
   createRoom() {
-    this.dialogRef.close({ action: RoomActions.CREATE, room: this.roomForm.value });
+    this.dialogRef.close({ action: RoomActions.CREATE, room: this.roomForm.value as Floor });
   }
 }

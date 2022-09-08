@@ -44,7 +44,7 @@ export class FloorsComponent implements OnInit {
       });
   }
 
-  getRoomsById(id: number) {
+  getRoomsByFloorId(id: number) {
     this.isLoading = true;
     this.roomService
       .getRoomsByFloorId(id)
@@ -60,7 +60,7 @@ export class FloorsComponent implements OnInit {
 
   onSelectionFloorChange(floor: Floor) {
     this.selectedFloor = floor;
-    this.getRoomsById(floor.id);
+    this.getRoomsByFloorId(floor.id);
   }
 
   openDialog() {
