@@ -1,27 +1,37 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title> {{ room.name }} </mat-card-title>
-    <mat-card-subtitle> {{ room.name }} </mat-card-subtitle>
-    <app-loader [isLoading]="isLoading" [size]="1.5"></app-loader>
+    <h2>{{ room.name }}</h2>
   </mat-card-header>
 
-  <!-- <a [routerLink]="['/heroes', heroe.id]">
-      <img mat-card-image
-           [src]="heroe | imagen">
-  </a> -->
+  <mat-card-content fxLayout="column">
+    <form class="example-form">
+      <mat-label fxFill fxLayoutAlign="start center">
+        <strong>Capacidad máxima</strong>
+      </mat-label>
 
-  <mat-card-content>
-    <h3>{{ room.name }}</h3>
-    <p>
-      <strong>Primera aparición: </strong>{{ room.name }}
-      <br />
-      <strong>Personajes: </strong>{{ room.name }}
-    </p>
-    <br />
+      <mat-form-field fxFill appearance="outline">
+        <input matInput type="email" placeholder="30" formControlName="maximum_capacity" required />
+        <!-- <mat-error *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched">
+          <span>{{ 'app.forms.is required' | translate: {item: ('auth.login.email' | translate)} }}</span>
+        </mat-error> -->
+      </mat-form-field>
+
+      <mat-label fxLayoutAlign="start center">
+        <strong>Ocupación</strong>
+      </mat-label>
+      <mat-form-field fxFill appearance="outline">
+        <input matInput type="email" placeholder="30" formControlName="occupancy" required />
+        <!-- <mat-error *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched">
+          <span>{{ 'app.forms.is required' | translate: {item: ('auth.login.email' | translate)} }}</span>
+        </mat-error> -->
+      </mat-form-field>
+    </form>
+
+    <!-- <span fxFill>{{ room.maximum_capacity }}</span>
+    <span fxFill>{{ room.occupancy }}</span> -->
   </mat-card-content>
 
-  <mat-card-actions>
-    <button mat-button color="warn">Leer más...</button>
-    <button mat-button color="info">Editar</button>
+  <mat-card-actions fxLayoutAlign="end center">
+    <button mat-flat-button color="primary">Modificar</button>
   </mat-card-actions>
 </mat-card>
