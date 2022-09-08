@@ -10,6 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [FlexLayoutModule, MaterialModule, TranslateModule, CommonModule, FormsModule, ReactiveFormsModule],
   declarations: [LoaderComponent],
-  exports: [LoaderComponent],
+  exports: [LoaderComponent, FormsModule, ReactiveFormsModule],
 })
 export class SharedModule {}

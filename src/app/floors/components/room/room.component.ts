@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Room } from '@app/@shared/models/floor';
 
 @Component({
@@ -6,11 +6,15 @@ import { Room } from '@app/@shared/models/floor';
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.scss'],
 })
-export class RoomComponent implements OnInit {
+export class RoomComponent {
   @Input() room!: Room;
   @Input() isLoading!: boolean;
 
+  @Output() public onRoomEvent = new EventEmitter<Room>();
+
   constructor() {}
 
-  ngOnInit(): void {}
+  updateRoom(room: Room) {
+    this.onRoomEvent.emit(room);
+  }
 }

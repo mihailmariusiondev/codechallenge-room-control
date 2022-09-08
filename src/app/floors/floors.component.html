@@ -29,7 +29,7 @@
       fxFlex.lg="25%"
       *ngFor="let room of selectedFloor.rooms"
     >
-      <app-room [room]="room" [isLoading]="isLoading"></app-room>
+      <app-room [room]="room" [isLoading]="isLoading" (onRoomEvent)="onRoomUpdate($event)"></app-room>
     </div>
   </div>
 </div>

@@ -3,7 +3,7 @@ import { MatOptionSelectionChange } from '@angular/material/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FloorService } from '@app/@shared';
-import { Floor } from '@app/@shared/models/floor';
+import { Floor, Room } from '@app/@shared/models/floor';
 import { finalize } from 'rxjs';
 import { RoomDialogBoxComponent } from './components/room-dialog-box/room-dialog-box.component';
 
@@ -52,5 +52,9 @@ export class FloorsComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  onRoomUpdate(room: Room) {
+    console.log(room);
   }
 }

@@ -4,34 +4,23 @@
   </mat-card-header>
 
   <mat-card-content fxLayout="column">
-    <form class="example-form">
-      <mat-label fxFill fxLayoutAlign="start center">
-        <strong>Capacidad máxima</strong>
-      </mat-label>
+    <mat-label fxFill fxLayoutAlign="start center">
+      <strong>Capacidad máxima</strong>
+    </mat-label>
 
-      <mat-form-field fxFill appearance="outline">
-        <input matInput type="email" placeholder="30" formControlName="maximum_capacity" required />
-        <!-- <mat-error *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched">
-          <span>{{ 'app.forms.is required' | translate: {item: ('auth.login.email' | translate)} }}</span>
-        </mat-error> -->
-      </mat-form-field>
+    <mat-form-field fxFill appearance="outline">
+      <input matInput type="email" placeholder="30" required />
+    </mat-form-field>
 
-      <mat-label fxLayoutAlign="start center">
-        <strong>Ocupación</strong>
-      </mat-label>
-      <mat-form-field fxFill appearance="outline">
-        <input matInput type="email" placeholder="30" formControlName="occupancy" required />
-        <!-- <mat-error *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched">
-          <span>{{ 'app.forms.is required' | translate: {item: ('auth.login.email' | translate)} }}</span>
-        </mat-error> -->
-      </mat-form-field>
-    </form>
-
-    <!-- <span fxFill>{{ room.maximum_capacity }}</span>
-    <span fxFill>{{ room.occupancy }}</span> -->
+    <mat-label fxLayoutAlign="start center">
+      <strong>Ocupación</strong>
+    </mat-label>
+    <mat-form-field fxFill appearance="outline">
+      <input matInput type="email" placeholder="30" required />
+    </mat-form-field>
   </mat-card-content>
 
   <mat-card-actions fxLayoutAlign="end center">
-    <button mat-flat-button color="primary">Modificar</button>
+    <button mat-flat-button color="primary" (click)="updateRoom(room)">Modificar</button>
   </mat-card-actions>
 </mat-card>
