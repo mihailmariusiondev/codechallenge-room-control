@@ -2,75 +2,83 @@
   "floors": [
     {
       "id": 1,
-      "name": "Planta 1",
-      "rooms": [
-        {
-          "id": 1,
-          "name": "Sala 1 planta 1",
-          "maximum_capacity": 30,
-          "occupancy": 15
-        },
-        {
-          "id": 2,
-          "name": "Sala 2 planta 1",
-          "maximum_capacity": 30,
-          "occupancy": 15
-        },
-        {
-          "id": 3,
-          "name": "Sala 3 planta 1",
-          "maximum_capacity": 30,
-          "occupancy": 15
-        },
-        {
-          "id": 4,
-          "name": "Sala 4 planta 1",
-          "maximum_capacity": 30,
-          "occupancy": 15
-        },
-        {
-          "id": 5,
-          "name": "Sala 5 planta 1",
-          "maximum_capacity": 30,
-          "occupancy": 15
-        }
-      ]
+      "name": "Planta 1"
     },
     {
       "id": 2,
-      "name": "Planta 2",
-      "rooms": [
-        {
-          "id": 1,
-          "name": "Sala 1 planta 2",
-          "maximum_capacity": 50,
-          "occupancy": 25
-        },
-        {
-          "id": 2,
-          "name": "Sala 2 planta 2",
-          "maximum_capacity": 50,
-          "occupancy": 25
-        },
-        {
-          "id": 3,
-          "name": "Sala 3 planta 2",
-          "maximum_capacity": 50,
-          "occupancy": 25
-        },
-        {
-          "id": 4,
-          "name": "Sala 4 planta 2",
-          "maximum_capacity": 30,
-          "occupancy": 25
-        },
-        {
-          "id": 5,
-          "name": "Sala 5 planta 2",
-          "maximum_capacity": 30,
-          "occupancy": 25
-        }
-      ]
+      "name": "Planta 2"
+    }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "floor_id": 1,
+      "name": "Sala 1 planta 1",
+      "maximum_capacity": 30,
+      "occupancy": 15
+    },
+    {
+      "id": 2,
+      "floor_id": 1,
+      "name": "Sala 2 planta 1",
+      "maximum_capacity": 30,
+      "occupancy": 15
+    },
+    {
+      "id": 3,
+      "floor_id": 1,
+      "name": "Sala 3 planta 1",
+      "maximum_capacity": 30,
+      "occupancy": 15
+    },
+    {
+      "id": 4,
+      "floor_id": 1,
+      "name": "Sala 4 planta 1",
+      "maximum_capacity": 30,
+      "occupancy": 15
+    },
+    {
+      "id": 5,
+      "floor_id": 1,
+      "name": "Sala 5 planta 1",
+      "maximum_capacity": 30,
+      "occupancy": 15
+    },
+    {
+      "id": 6,
+      "floor_id": 1,
+      "name": "Sala 1 planta 2",
+      "maximum_capacity": 50,
+      "occupancy": 25
+    },
+    {
+      "id": 7,
+      "floor_id": 2,
+      "name": "Sala 2 planta 2",
+      "maximum_capacity": 50,
+      "occupancy": 25
+    },
+    {
+      "id": 8,
+      "floor_id": 2,
+      "name": "Sala 3 planta 2",
+      "maximum_capacity": 50,
+      "occupancy": 25
+    },
+    {
+      "id": 9,
+      "floor_id": 2,
+      "name": "Sala 4 planta 2",
+      "maximum_capacity": 30,
+      "occupancy": 25
+    },
+    {
+      "id": 10,
+      "floor_id": 2,
+      "name": "Sala 5 planta 2",
+      "maximum_capacity": 30,
+      "occupancy": 25
     }
   ]
 }

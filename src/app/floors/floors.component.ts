@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FloorService } from '@app/@shared';
-import { Floor, Room, RoomActions } from '@app/@shared/models/floor';
+import { Floor, RoomActions } from '@app/@shared/models/floor';
+import { Room } from '@app/@shared/models/room';
+import { RoomService } from '@app/@shared/room';
 import { finalize } from 'rxjs';
 import { AddRoomDialogBoxComponent } from './components/add-room-dialog-box/add-room-dialog-box.component';
 
@@ -13,16 +15,22 @@ import { AddRoomDialogBoxComponent } from './components/add-room-dialog-box/add-
 })
 export class FloorsComponent implements OnInit {
   floors: Floor[] = [];
-  selectedFloor: Floor = {
-    id: 0,
-    name: '',
-    rooms: [],
-  };
+  rooms: Room[] = [];
+  selectedFloor!: Floor;
   isLoading = false;
 
-  constructor(private floorService: FloorService, private snackBar: MatSnackBar, public dialog: MatDialog) {}
+  constructor(
+    private floorService: FloorService,
+    private roomService: RoomService,
+    private snackBar: MatSnackBar,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
+    this.getFloors();
+  }
+
+  getFloors() {
     this.isLoading = true;
     this.floorService
       .getFloors()
@@ -34,6 +42,25 @@ export class FloorsComponent implements OnInit {
       .subscribe((floors: Floor[]) => {
         this.floors = floors;
       });
+  }
+
+  getRoomsById(id: number) {
+    this.isLoading = true;
+    this.roomService
+      .getRoomsByFloorId(id)
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+        })
+      )
+      .subscribe((rooms: Room[]) => {
+        this.rooms = rooms;
+      });
+  }
+
+  onSelectionFloorChange(floor: Floor) {
+    this.selectedFloor = floor;
+    this.getRoomsById(floor.id);
   }
 
   openDialog() {

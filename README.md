@@ -161,3 +161,5 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - I was trying to create the same form (duplicating formControlNames in the process) for each room, resulting in compilation errors
 - Had to edit `tsconfig.json` to supress a few compiling errors
 - Some problems with mat-select firing twice
+- Some problems with backdrop of mat dialog
+- Had to update the model so it matched my needs better (I was complicating my life having rooms inside floor as array)

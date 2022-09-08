@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Room } from '@app/@shared/models/floor';
+import { Room } from '@app/@shared/models/room';
 
 @Component({
   selector: 'app-room',
