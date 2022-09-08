@@ -16,4 +16,11 @@ export class FloorService {
       catchError(() => of([]))
     );
   }
+
+  updateFloors(floor: Floor): Observable<Floor[]> {
+    return this.httpClient.patch<Floor[]>(`/floors/${floor.id}`, floor).pipe(
+      map((body: Floor[]) => body),
+      catchError(() => of([]))
+    );
+  }
 }

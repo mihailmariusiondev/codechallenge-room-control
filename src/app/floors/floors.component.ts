@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatOptionSelectionChange } from '@angular/material/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FloorService } from '@app/@shared';
 import { Floor, Room, RoomActions } from '@app/@shared/models/floor';
@@ -44,16 +43,14 @@ export class FloorsComponent implements OnInit {
       data: { floor: this.selectedFloor },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        console.log(result);
-        if (result.event == RoomActions.CREATE) {
-          this.createRoom(result.data);
-        } else if (result.event == RoomActions.UPDATE) {
-          this.updateRoom(result.data);
-        } else if (result.event == RoomActions.DELETE) {
-          this.deleteRoom(result.data);
-        }
+    dialogRef.afterClosed().subscribe(({ action, floor }: { action: string; floor: Floor }) => {
+      console.log(floor);
+      if (action == RoomActions.CREATE) {
+        this.updateFloor(floor);
+      } else if (action == RoomActions.UPDATE) {
+        this.updateFloor(floor);
+      } else if (action == RoomActions.DELETE) {
+        this.deleteFloor(floor);
       }
     });
   }
@@ -78,7 +75,18 @@ export class FloorsComponent implements OnInit {
     // });
   }
 
-  updateRoom(room: Room) {
+  updateFloor(floor: Floor) {
+    this.floorService
+      .updateFloors(floor)
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+        })
+      )
+      .subscribe((floors: Floor[]) => {
+        this.floors = floors;
+      });
+
     // this.isLoading = true;
     // this.userService.updateUser(room).subscribe({
     //   next: (response) => {
@@ -99,7 +107,7 @@ export class FloorsComponent implements OnInit {
     // });
   }
 
-  deleteRoom(room: Room) {
+  deleteFloor(floor: Floor) {
     // this.isLoading = true;
     // this.userService.deleteUser(room.id).subscribe({
     //   next: (response) => {
