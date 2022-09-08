@@ -21,7 +21,12 @@
     </div>
 
     <div fxFill fxFlex="25" fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.md="30%" fxFlex.lg="25%" *ngFor="let room of rooms">
-      <app-room [room]="room" [isLoading]="isLoading" (onRoomEvent)="onRoomUpdate($event)"></app-room>
+      <app-room
+        [room]="room"
+        [isLoading]="isLoading"
+        (onRoomUpdateEvent)="updateRoom($event)"
+        (onRoomDeleteEvent)="deleteRoom($event)"
+      ></app-room>
     </div>
   </div>
 </div>

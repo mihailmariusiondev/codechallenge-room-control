@@ -10,11 +10,16 @@ export class RoomComponent {
   @Input() room!: Room;
   @Input() isLoading!: boolean;
 
-  @Output() public onRoomEvent = new EventEmitter<Room>();
+  @Output() public onRoomUpdateEvent = new EventEmitter<Room>();
+  @Output() public onRoomDeleteEvent = new EventEmitter<Room>();
 
   constructor() {}
 
   updateRoom(room: Room) {
-    this.onRoomEvent.emit(room);
+    this.onRoomUpdateEvent.emit(room);
+  }
+
+  deleteRoom(room: Room) {
+    this.onRoomDeleteEvent.emit(room);
   }
 }

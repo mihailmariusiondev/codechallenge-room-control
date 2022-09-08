@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { FloorService } from '@app/@shared';
 import { Floor, RoomActions } from '@app/@shared/models/floor';
 import { Room } from '@app/@shared/models/room';
-import { RoomService } from '@app/@shared/room';
+import { RoomService } from '@app/@shared/room.service';
 import { finalize } from 'rxjs';
 import { AddRoomDialogBoxComponent } from './components/add-room-dialog-box/add-room-dialog-box.component';
 
@@ -73,82 +73,44 @@ export class FloorsComponent implements OnInit {
     dialogRef.afterClosed().subscribe((event) => {
       if (event) {
         const _action: RoomActions = event.action;
-        const _floor: Floor = event.floor;
+        const _room: Room = event.room;
         if (_action == RoomActions.CREATE) {
-          this.updateFloor(_floor);
+          this.createRoom(_room);
         }
       }
     });
   }
 
-  onRoomUpdate(room: Room) {
-    console.log(room);
-  }
-
   createRoom(room: Room) {
-    this.isLoading = true;
-
-    // this.userService.addUser(room).subscribe({
-    //   next: (response) => {
-    //     this.users = [...this.users, response];
-    //     this.showSnackbar("Usuario AÑADIDO con éxito");
-    //     this.isLoading = false;
-    //   },
-    //   error: (err) => {
-    //     this.isLoading = false;
-    //     this.showSnackbar("Error al AÑADIR user");
-    //   },
-    // });
-  }
-
-  updateFloor(floor: Floor) {
-    this.floorService
-      .updateFloor(floor)
+    this.roomService
+      .createRoom(room)
       .pipe(
         finalize(() => {
           this.isLoading = false;
-          this.showSnackbar('Planta actualizada con éxito');
+          this.showSnackbar('Sala agregada con éxito');
         })
       )
-      .subscribe((floor: Floor) => {
-        this.selectedFloor = floor;
+      .subscribe((room: Room) => {
+        this.rooms = { ...this.rooms, ...room };
       });
-
-    // this.isLoading = true;
-    // this.userService.updateUser(room).subscribe({
-    //   next: (response) => {
-    //     this.users = this.users.filter((value, key) => {
-    //       if (value.id == response.id) {
-    //         value.name = response.name;
-    //         value.email = response.email;
-    //       }
-    //       return true;
-    //     });
-    //     this.isLoading = false;
-    //     this.showSnackbar("Usuario ACTUALIZADO con éxito");
-    //   },
-    //   error: (err) => {
-    //     this.isLoading = false;
-    //     this.showSnackbar("Error al ACTUALIZAR user");
-    //   },
-    // });
   }
 
-  deleteFloor(floor: Floor) {
-    // this.isLoading = true;
-    // this.userService.deleteUser(room.id).subscribe({
-    //   next: (response) => {
-    //     this.users = this.users.filter((value, key) => {
-    //       return value.id != room.id;
-    //     });
-    //     this.showSnackbar("Usuario ELIMINADO con éxito");
-    //     this.isLoading = false;
-    //   },
-    //   error: (err) => {
-    //     this.isLoading = false;
-    //     this.showSnackbar("Error al ELIMINAR user");
-    //   },
-    // });
+  updateRoom(room: Room) {
+    console.log(room);
+  }
+
+  deleteRoom(room: Room) {
+    this.roomService
+      .deleteRoom(room.id)
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+          this.showSnackbar('Sala eliminada con éxito');
+        })
+      )
+      .subscribe((response: any) => {
+        this.rooms = this.rooms.filter((x) => x.id !== room.id);
+      });
   }
 
   showSnackbar(message: string) {

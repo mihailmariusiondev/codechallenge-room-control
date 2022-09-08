@@ -20,14 +20,15 @@ export class AddRoomDialogBoxComponent {
     this.floor = data.floor;
 
     this.roomForm = this.formBuilder.group({
+      id: [Date.now()],
       name: [null, [Validators.maxLength(100), Validators.required]],
+      floor_id: [this.floor.id, [Validators.maxLength(100), Validators.required]],
       maximum_capacity: [null, [Validators.required]],
       occupancy: [null, [Validators.required]],
     });
   }
 
   createRoom() {
-    // this.floor.rooms.push(this.roomForm.value);
-    this.dialogRef.close({ action: RoomActions.CREATE, floor: this.floor });
+    this.dialogRef.close({ action: RoomActions.CREATE, room: this.roomForm.value });
   }
 }
