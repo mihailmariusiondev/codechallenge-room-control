@@ -37,11 +37,6 @@ export class FloorsComponent implements OnInit {
       });
   }
 
-  onFloorChange(floor: MatOptionSelectionChange) {
-    this.selectedFloor = floor.source.value;
-    console.log(this.selectedFloor);
-  }
-
   openDialog() {
     const dialogRef = this.dialog.open(AddRoomDialogBoxComponent, {
       width: '500px',

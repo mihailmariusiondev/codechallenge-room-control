@@ -4,8 +4,8 @@
   <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayout.xs="column">
     <div fxFlex="100%" fxFlexFill fxLayoutAlign="start center">
       <mat-form-field appearance="outline">
-        <mat-select>
-          <mat-option *ngFor="let floor of floors" [value]="floor" (onSelectionChange)="onFloorChange($event)">
+        <mat-select [(value)]="selectedFloor">
+          <mat-option *ngFor="let floor of floors" [value]="floor">
             {{ floor.name }}
           </mat-option>
         </mat-select>

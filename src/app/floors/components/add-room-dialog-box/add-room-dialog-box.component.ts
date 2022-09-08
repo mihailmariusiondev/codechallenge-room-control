@@ -15,9 +15,9 @@ export class AddRoomDialogBoxComponent {
   constructor(
     public dialogRef: MatDialogRef<AddRoomDialogBoxComponent>,
     private formBuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: Floor
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.floor = data;
+    this.floor = data.floor;
 
     this.roomForm = this.formBuilder.group({
       name: [null, [Validators.maxLength(100), Validators.required]],
@@ -27,7 +27,6 @@ export class AddRoomDialogBoxComponent {
   }
 
   createRoom() {
-    this.floor = { ...this.floor.rooms, ...this.roomForm.value };
-    this.dialogRef.close({ event: RoomActions.CREATE, data: this.floor });
+    this.dialogRef.close({ event: RoomActions.CREATE, data: { floor: this.floor, room: this.roomForm.value } });
   }
 }
