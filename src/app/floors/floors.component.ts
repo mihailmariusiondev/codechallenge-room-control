@@ -43,14 +43,13 @@ export class FloorsComponent implements OnInit {
       data: { floor: this.selectedFloor },
     });
 
-    dialogRef.afterClosed().subscribe(({ action, floor }: { action: string; floor: Floor }) => {
-      console.log(floor);
-      if (action == RoomActions.CREATE) {
-        this.updateFloor(floor);
-      } else if (action == RoomActions.UPDATE) {
-        this.updateFloor(floor);
-      } else if (action == RoomActions.DELETE) {
-        this.deleteFloor(floor);
+    dialogRef.afterClosed().subscribe((event) => {
+      if (event) {
+        const _action: RoomActions = event.action;
+        const _floor: Floor = event.floor;
+        if (_action == RoomActions.CREATE) {
+          this.updateFloor(_floor);
+        }
       }
     });
   }
@@ -77,14 +76,15 @@ export class FloorsComponent implements OnInit {
 
   updateFloor(floor: Floor) {
     this.floorService
-      .updateFloors(floor)
+      .updateFloor(floor)
       .pipe(
         finalize(() => {
           this.isLoading = false;
+          this.showSnackbar('Planta actualizada con éxito');
         })
       )
-      .subscribe((floors: Floor[]) => {
-        this.floors = floors;
+      .subscribe((floor: Floor) => {
+        this.selectedFloor = floor;
       });
 
     // this.isLoading = true;

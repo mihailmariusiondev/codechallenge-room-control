@@ -1,5 +1,7 @@
 <div fxLayout="column">
-  <h1 fxFill mat-dialog-title>Añadir sala</h1>
+  <h1 fxFill mat-dialog-title>
+    Añadir sala a planta <b>{{ floor.name }}</b>
+  </h1>
 
   <div mat-dialog-content>
     <form [formGroup]="roomForm">
