@@ -1,0 +1,40 @@
+<div fxLayout="column">
+  <h1 fxFill mat-dialog-title>Añadir sala</h1>
+
+  <div mat-dialog-content>
+    <form [formGroup]="roomForm">
+      <mat-form-field fxFill appearance="outline">
+        <input matInput type="text" placeholder="Nombre de la sala" formControlName="name" />
+        <mat-error *ngIf="roomForm.controls.name.errors?.required">Nombre de la sala es requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFill appearance="outline">
+        <input matInput type="number" placeholder="Capacidad máxima" formControlName="maximum_capacity" />
+        <mat-error *ngIf="roomForm.controls.maximum_capacity.errors?.required">Capacidad máxima es requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFill appearance="outline">
+        <input matInput type="number" placeholder="Ocupación" formControlName="occupancy" />
+        <mat-error *ngIf="roomForm.controls.occupancy.errors?.required">Ocupación es requerido</mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div mat-dialog-actions fxFlex fxLayout="row">
+    <div fxFlex="50%">
+      <button fxFill mat-button mat-dialog-close>Cancelar</button>
+    </div>
+    <div fxFlex="50%">
+      <button
+        fxFill
+        mat-flat-button
+        color="primary"
+        mat-dialog-close
+        [disabled]="!this.roomForm.valid"
+        (click)="createRoom()"
+      >
+        Añadir
+      </button>
+    </div>
+  </div>
+</div>

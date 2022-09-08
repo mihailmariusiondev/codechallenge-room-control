@@ -10,3 +10,9 @@ export interface Room {
   maximum_capacity: number;
   occupancy: number;
 }
+
+export enum RoomActions {
+  CREATE = 'create',
+  UPDATE = 'update',
+  DELETE = 'delete',
+}

@@ -152,3 +152,12 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Updating dependencies and tools](docs/updating.md)
 - [Using a backend proxy for development](docs/backend-proxy.md)
 - [Browser routing](docs/routing.md)
+
+---
+
+# Problems encountered during this challenge:
+
+- Some imports in some modules were wrong
+- I was trying to create the same form (duplicating formControlNames in the process) for each room, resulting in compilation errors
+- Had to edit `tsconfig.json` to supress a few compiling errors
+- Some problems with mat-select firing twice
