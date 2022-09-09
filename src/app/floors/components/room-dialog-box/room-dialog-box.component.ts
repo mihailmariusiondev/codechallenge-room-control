@@ -26,7 +26,7 @@ export class RoomDialogBoxComponent {
     this.action = data.action;
 
     this.roomForm = this.formBuilder.group({
-      id: [this.room.id || Date.now()],
+      id: [this.room?.id || Date.now()],
       name: [null, [Validators.maxLength(100), Validators.required]],
       floor_id: [this.floor.id, [Validators.maxLength(100), Validators.required]],
       maximum_capacity: [null, [Validators.required]],

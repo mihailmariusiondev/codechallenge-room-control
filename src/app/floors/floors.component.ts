@@ -107,7 +107,9 @@ export class FloorsComponent implements OnInit {
       .subscribe((room: Room) => {
         this.rooms.map((r: Room, i) => {
           if (r.id == room.id) {
-            r = room;
+            r.name = room.name;
+            r.maximum_capacity = room.maximum_capacity;
+            r.occupancy = room.occupancy;
           }
         });
       });

@@ -9,14 +9,14 @@
     </mat-label>
 
     <mat-form-field fxFill appearance="outline">
-      <input matInput type="number" placeholder="30" required [disabled]="true" />
+      <input matInput type="number" [placeholder]="room.maximum_capacity.toString()" required [disabled]="true" />
     </mat-form-field>
 
     <mat-label fxLayoutAlign="start center">
       <strong>Ocupación</strong>
     </mat-label>
     <mat-form-field fxFill appearance="outline">
-      <input matInput type="number" placeholder="30" required [disabled]="true" />
+      <input matInput type="number" [placeholder]="room.occupancy.toString()" required [disabled]="true" />
       <mat-icon matSuffix>percent</mat-icon>
     </mat-form-field>
   </mat-card-content>
