@@ -1,19 +1,19 @@
-<form id="myForm" [formGroup]="thisIsMyForm">
+<form [formGroup]="form">
   <div [formArrayName]="'formArrayName'">
-    <mat-card *ngFor="let x of rooms; let i = index">
+    <mat-card *ngFor="let room of rooms; let i = index">
       <div [formGroupName]="i">
         <mat-form-field>
           <label>Name:</label>
-          <input formControlName="name" id="{{ x.name }}" matInput value="{{ x.name }}" />
+          <input formControlName="name" id="{{ room.name }}" matInput value="{{ room.name }}" />
         </mat-form-field>
-        <!-- <mat-form-field>
-      <label>Type:</label>
-      <input formControlName="type" id="{{x.type}}" matInput value="{{x.type}}"/>
-    </mat-form-field> -->
+        <mat-form-field>
+          <label>Type:</label>
+          <input formControlName="type" id="{{ room.maximum_capacity }}" matInput value="{{ room.maximum_capacity }}" />
+        </mat-form-field>
         <button *ngIf="formControlState(i)" (click)="toggleEdit(i)">Enable Edit</button>
         <button *ngIf="!formControlState(i)" (click)="toggleEdit(i)">Save</button>
       </div>
     </mat-card>
-    <button [disabled]="thisIsMyForm.get('formArrayName')?.enabled" (click)="onSubmit()">Submit Form</button>
+    <button [disabled]="form.get('formArrayName')?.enabled" (click)="onSubmit()">Submit Form</button>
   </div>
 </form>

@@ -11,13 +11,6 @@
   ],
   "rooms": [
     {
-      "id": 1,
-      "floor_id": 1,
-      "name": "Sala 1 planta 1",
-      "maximum_capacity": 30,
-      "occupancy": 15
-    },
-    {
       "id": 2,
       "floor_id": 1,
       "name": "Sala 2 planta 1",

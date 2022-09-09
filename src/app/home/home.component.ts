@@ -9,14 +9,14 @@ import { RoomService } from '@app/@shared/room.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  thisIsMyForm: FormGroup;
+  form: FormGroup;
   rooms: Room[] = [];
 
   constructor(private formBuilder: FormBuilder, private roomService: RoomService) {
-    this.thisIsMyForm = new FormGroup({
+    this.form = new FormGroup({
       formArrayName: this.formBuilder.array([]),
     });
-    this.getRoomsByFloorId(1);
+    this.getRoomsByFloorId(2);
   }
 
   getRoomsByFloorId(id: number) {
@@ -27,20 +27,20 @@ export class HomeComponent {
   }
 
   buildForm() {
-    const controlArray = this.thisIsMyForm.get('formArrayName') as FormArray;
+    const controlArray = this.form.get('formArrayName') as FormArray;
 
     Object.keys(this.rooms).forEach((i) => {
       controlArray.push(
         this.formBuilder.group({
           name: new FormControl({ value: this.rooms[i].name, disabled: true }),
-          type: new FormControl({ value: this.rooms[i].type, disabled: true }),
+          type: new FormControl({ value: this.rooms[i].maximum_capacity, disabled: true }),
         })
       );
     });
   }
 
-  toggleEdit(i: any) {
-    const controlArray = this.thisIsMyForm.get('formArrayName') as FormArray;
+  toggleEdit(i: number) {
+    const controlArray = this.form.get('formArrayName') as FormArray;
     if (controlArray.controls[i].status === 'DISABLED') {
       controlArray.controls[i].enable();
     } else {
@@ -49,11 +49,11 @@ export class HomeComponent {
   }
 
   formControlState(i: number) {
-    const controlArray = this.thisIsMyForm.get('formArrayName') as FormArray;
+    const controlArray = this.form.get('formArrayName') as FormArray;
     return controlArray.controls[i].disabled;
   }
 
   onSubmit() {
-    console.log(this.thisIsMyForm.value);
+    console.log(this.form.value);
   }
 }

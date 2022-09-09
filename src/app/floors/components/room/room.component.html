@@ -7,16 +7,15 @@
     <mat-label fxFill fxLayoutAlign="start center">
       <strong>Capacidad máxima</strong>
     </mat-label>
-
     <mat-form-field fxFill appearance="outline">
-      <input matInput type="email" placeholder="30" required />
+      <input matInput type="number" placeholder="30" required [formControl]="maximum_capacity" />
     </mat-form-field>
 
     <mat-label fxLayoutAlign="start center">
       <strong>Ocupación</strong>
     </mat-label>
     <mat-form-field fxFill appearance="outline">
-      <input matInput type="email" placeholder="30" required />
+      <input matInput type="number" placeholder="30" required [formControl]="occupancy" />
       <mat-icon matSuffix>percent</mat-icon>
     </mat-form-field>
   </mat-card-content>
