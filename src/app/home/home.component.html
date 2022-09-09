@@ -1,13 +1,19 @@
-<div class="container">
-  <mat-card>
-    <p>
-      <img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo" />
-    </p>
-    <mat-card-content>
-      <mat-card-title translate>Hello world !</mat-card-title>
-      <mat-card-subtitle>
-        <q>The way to get started is to quit talking and begin doing</q>
-      </mat-card-subtitle>
-    </mat-card-content>
-  </mat-card>
-</div>
+<form id="myForm" [formGroup]="thisIsMyForm">
+  <div [formArrayName]="'formArrayName'">
+    <mat-card *ngFor="let x of rooms; let i = index">
+      <div [formGroupName]="i">
+        <mat-form-field>
+          <label>Name:</label>
+          <input formControlName="name" id="{{ x.name }}" matInput value="{{ x.name }}" />
+        </mat-form-field>
+        <!-- <mat-form-field>
+      <label>Type:</label>
+      <input formControlName="type" id="{{x.type}}" matInput value="{{x.type}}"/>
+    </mat-form-field> -->
+        <button *ngIf="formControlState(i)" (click)="toggleEdit(i)">Enable Edit</button>
+        <button *ngIf="!formControlState(i)" (click)="toggleEdit(i)">Save</button>
+      </div>
+    </mat-card>
+    <button [disabled]="thisIsMyForm.get('formArrayName')?.enabled" (click)="onSubmit()">Submit Form</button>
+  </div>
+</form>
