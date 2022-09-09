@@ -1,0 +1,66 @@
+<div fxLayout="column">
+  <h1 fxFill mat-dialog-title>
+    <!-- <ng-container *ngIf="!room; else updateRoomTitle">
+      Añadir sala a planta <b>{{ floor.name }}</b>
+    </ng-container>
+    <ng-template #updateRoomTitle>
+      Modificar <b>{{ room.name }}</b> en <b>{{floor.name}}</b>
+    </ng-template> -->
+  </h1>
+
+  <div mat-dialog-content>
+    <ng-container *ngIf="action !== checkActionEnum.DELETE; else elseTemplate">
+      <form [formGroup]="roomForm">
+        <mat-form-field fxFill appearance="outline">
+          <input matInput type="text" [placeholder]="room ? room.name : 'Nombre de la sala'" formControlName="name" />
+          <mat-error *ngIf="roomForm.controls.name.errors?.required">Nombre de la sala es requerido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFill appearance="outline">
+          <input
+            matInput
+            type="number"
+            [placeholder]="room ? room.maximum_capacity.toString() : 'Capacidad máxima'"
+            formControlName="maximum_capacity"
+          />
+          <mat-error *ngIf="roomForm.controls.maximum_capacity.errors?.required"
+            >Capacidad máxima es requerido</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field fxFill appearance="outline">
+          <input
+            matInput
+            type="number"
+            [placeholder]="room ? room.occupancy.toString() : 'Ocupación'"
+            formControlName="occupancy"
+          />
+          <mat-error *ngIf="roomForm.controls.occupancy.errors?.required">Ocupación es requerido</mat-error>
+        </mat-form-field>
+      </form>
+    </ng-container>
+
+    <ng-template #elseTemplate>
+      ¿Seguro que quieres borrar <b>{{ room.name | uppercase }}</b
+      >?
+    </ng-template>
+  </div>
+
+  <div mat-dialog-actions fxFlex fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="center center">
+    <div fxFlex="45%">
+      <button fxFill mat-button mat-dialog-close>Cancelar</button>
+    </div>
+    <div fxFlex="45%">
+      <button
+        fxFill
+        mat-flat-button
+        color="primary"
+        mat-dialog-close
+        [disabled]="!this.roomForm.valid && action !== checkActionEnum.DELETE"
+        (click)="doAction()"
+      >
+        Añadir
+      </button>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,7 @@ import { Floor, RoomActions } from '@app/@shared/models/floor';
 import { Room } from '@app/@shared/models/room';
 import { RoomService } from '@app/@shared/room.service';
 import { finalize } from 'rxjs';
-import { AddRoomDialogBoxComponent } from './components/add-room-dialog-box/add-room-dialog-box.component';
+import { RoomDialogBoxComponent } from './components/room-dialog-box/room-dialog-box.component';
 
 @Component({
   selector: 'app-floors',
@@ -18,6 +18,7 @@ export class FloorsComponent implements OnInit {
   rooms: Room[] = [];
   selectedFloor!: Floor;
   isLoading = false;
+  public readonly action: typeof RoomActions = RoomActions;
 
   constructor(
     private floorService: FloorService,
@@ -58,16 +59,11 @@ export class FloorsComponent implements OnInit {
       });
   }
 
-  onSelectionFloorChange(floor: Floor) {
-    this.selectedFloor = floor;
-    this.getRoomsByFloorId(floor.id);
-  }
-
-  openDialog() {
-    const dialogRef = this.dialog.open(AddRoomDialogBoxComponent, {
+  openDialog(action: RoomActions, room?: Room) {
+    const dialogRef = this.dialog.open(RoomDialogBoxComponent, {
       width: '500px',
       height: '500px',
-      data: { floor: this.selectedFloor },
+      data: { floor: this.selectedFloor, room: room, action: action },
     });
 
     dialogRef.afterClosed().subscribe((event) => {
@@ -76,6 +72,10 @@ export class FloorsComponent implements OnInit {
         const _room: Room = event.room;
         if (_action == RoomActions.CREATE) {
           this.createRoom(_room);
+        } else if (_action == RoomActions.UPDATE) {
+          this.updateRoom(_room);
+        } else if (_action == RoomActions.DELETE) {
+          this.deleteRoom(_room);
         }
       }
     });
@@ -96,7 +96,21 @@ export class FloorsComponent implements OnInit {
   }
 
   updateRoom(room: Room) {
-    console.log(room);
+    this.roomService
+      .updateRoom(room)
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+          this.showSnackbar('Sala modificada con éxito');
+        })
+      )
+      .subscribe((room: Room) => {
+        this.rooms.map((r: Room, i) => {
+          if (r.id == room.id) {
+            r = room;
+          }
+        });
+      });
   }
 
   deleteRoom(room: Room) {
@@ -117,5 +131,10 @@ export class FloorsComponent implements OnInit {
     this.snackBar.open(message, 'Cerrar', {
       duration: 2500,
     });
+  }
+
+  onSelectionFloorChange(floor: Floor) {
+    this.selectedFloor = floor;
+    this.getRoomsByFloorId(floor.id);
   }
 }

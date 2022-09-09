@@ -15,7 +15,13 @@
     <mat-divider></mat-divider><br />
 
     <div fxFill fxLayoutAlign="end center">
-      <button fxFlex.xs="100%" mat-flat-button color="primary" (click)="openDialog()" [disabled]="!selectedFloor">
+      <button
+        fxFlex.xs="100%"
+        mat-flat-button
+        color="primary"
+        (click)="openDialog(action.CREATE)"
+        [disabled]="!selectedFloor"
+      >
         Añadir sala
       </button>
     </div>
@@ -24,8 +30,8 @@
       <app-room
         [room]="room"
         [isLoading]="isLoading"
-        (onRoomUpdateEvent)="updateRoom($event)"
-        (onRoomDeleteEvent)="deleteRoom($event)"
+        (onRoomUpdateEvent)="openDialog(action.UPDATE, $event)"
+        (onRoomDeleteEvent)="openDialog(action.DELETE, $event)"
       ></app-room>
     </div>
   </div>
