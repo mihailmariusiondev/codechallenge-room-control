@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Floor, RoomActions } from '@app/@shared/models/floor';
+import { Room } from '@app/@shared/models/room';
 
 @Component({
   selector: 'app-add-room-dialog-box',
@@ -29,6 +30,6 @@ export class AddRoomDialogBoxComponent {
   }
 
   createRoom() {
-    this.dialogRef.close({ action: RoomActions.CREATE, room: this.roomForm.value as Floor });
+    this.dialogRef.close({ action: RoomActions.CREATE, room: this.roomForm.value as Room });
   }
 }

@@ -91,7 +91,7 @@ export class FloorsComponent implements OnInit {
         })
       )
       .subscribe((room: Room) => {
-        this.rooms = { ...this.rooms, ...room };
+        this.rooms.push(room);
       });
   }
 
