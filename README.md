@@ -26,7 +26,7 @@ npm start
 3. In a separate terminal, start [JSON Server](https://github.com/typicode/json-server) (fake backend server)
 
 ```sh
-json-server --watch backend.json
+json-server --watch backend.json --port 3001
 ```
 
 # Project structure

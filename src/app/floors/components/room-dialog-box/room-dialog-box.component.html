@@ -1,15 +1,15 @@
 <div fxLayout="column">
-  <h1 fxFill mat-dialog-title>
-    <!-- <ng-container *ngIf="!room; else updateRoomTitle">
-      Añadir sala a planta <b>{{ floor.name }}</b>
-    </ng-container>
-    <ng-template #updateRoomTitle>
-      Modificar <b>{{ room.name }}</b> en <b>{{floor.name}}</b>
-    </ng-template> -->
-  </h1>
+  <ng-container *ngIf="action !== checkActionEnum.DELETE; else elseTemplate">
+    <h2 fxFill mat-dialog-title>
+      <ng-container *ngIf="!room; else updateRoomTitle">
+        <b>{{ floor.name }}</b> > Añadir sala
+      </ng-container>
+      <ng-template #updateRoomTitle>
+        <b>{{ floor.name }}</b> > Modificar <b>{{ room.name }}</b>
+      </ng-template>
+    </h2>
 
-  <div mat-dialog-content>
-    <ng-container *ngIf="action !== checkActionEnum.DELETE; else elseTemplate">
+    <div mat-dialog-content>
       <form [formGroup]="roomForm">
         <mat-form-field fxFill appearance="outline">
           <input matInput type="text" [placeholder]="room ? room.name : 'Nombre de la sala'" formControlName="name" />
@@ -38,13 +38,15 @@
           <mat-error *ngIf="roomForm.controls.occupancy.errors?.required">Ocupación es requerido</mat-error>
         </mat-form-field>
       </form>
-    </ng-container>
+    </div>
+  </ng-container>
 
-    <ng-template #elseTemplate>
-      ¿Seguro que quieres borrar <b>{{ room.name | uppercase }}</b
+  <ng-template #elseTemplate>
+    <h1 fxFill mat-dialog-title>
+      <b>{{ floor.name }}</b> > ¿Eliminar <b>{{ room.name | uppercase }}</b
       >?
-    </ng-template>
-  </div>
+    </h1>
+  </ng-template>
 
   <div mat-dialog-actions fxFlex fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="center center">
     <div fxFlex="45%">

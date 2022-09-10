@@ -1,19 +1,25 @@
-<div class="container">
-  <h1>Salas</h1>
+<div class="container" fxLayout="column" fxLayoutAlign="start center">
+  <h1 fxFill>Salas</h1>
 
-  <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayout.xs="column">
-    <div fxFlex="100%" fxFlexFill fxLayoutAlign="start center">
-      <mat-form-field appearance="outline">
-        <mat-select (selectionChange)="onSelectionFloorChange($event.value)">
-          <mat-option *ngFor="let floor of floors" [value]="floor">
-            {{ floor.name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+  <div fxFill>
+    <mat-form-field appearance="outline">
+      <mat-select (selectionChange)="onSelectionFloorChange($event.value)">
+        <mat-option *ngFor="let floor of floors" [value]="floor">
+          {{ floor.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 
-    <mat-divider></mat-divider><br />
+  <mat-divider></mat-divider><br />
 
+  <div
+    fxFill
+    fxLayout="column"
+    fxLayoutAlign="start center"
+    fxLayoutGap="20px"
+    style="border-radius: 26px; border: 2px blue solid; padding: 20px"
+  >
     <div fxFill fxLayoutAlign="end center">
       <button
         fxFlex.xs="100%"
@@ -26,8 +32,9 @@
       </button>
     </div>
 
-    <div fxFill fxFlex="25" fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.md="30%" fxFlex.lg="25%" *ngFor="let room of rooms">
+    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="15px">
       <app-room
+        *ngFor="let room of rooms"
         [room]="room"
         [isLoading]="isLoading"
         (onRoomUpdateEvent)="openDialog(action.UPDATE, $event)"
