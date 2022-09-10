@@ -27,10 +27,10 @@ export class RoomDialogBoxComponent {
 
     this.roomForm = this.formBuilder.group({
       id: [this.room?.id || Date.now()],
-      name: [null, [Validators.maxLength(100), Validators.required]],
+      name: [this.room?.id, [Validators.maxLength(100), Validators.required]],
       floor_id: [this.floor.id, [Validators.maxLength(100), Validators.required]],
-      maximum_capacity: [null, [Validators.required]],
-      occupancy: [null, [Validators.required]],
+      maximum_capacity: [this.room?.maximum_capacity, [Validators.required]],
+      occupancy: [this.room?.occupancy, [Validators.required]],
     });
   }
 

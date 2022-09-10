@@ -1,6 +1,6 @@
-<div fxLayout="column">
+<div class="room-dialog-container" fxLayout="column">
   <ng-container *ngIf="action !== checkActionEnum.DELETE; else elseTemplate">
-    <h2 fxFill mat-dialog-title>
+    <h2 class="room-dialog-title" fxFill mat-dialog-title>
       <ng-container *ngIf="!room; else updateRoomTitle">
         <b>{{ floor.name }}</b> > Añadir sala
       </ng-container>
@@ -17,24 +17,14 @@
         </mat-form-field>
 
         <mat-form-field fxFill appearance="outline">
-          <input
-            matInput
-            type="number"
-            [placeholder]="room ? room.maximum_capacity.toString() : 'Capacidad máxima'"
-            formControlName="maximum_capacity"
-          />
+          <input matInput type="number" [placeholder]="'Capacidad máxima'" formControlName="maximum_capacity" />
           <mat-error *ngIf="roomForm.controls.maximum_capacity.errors?.required"
             >Capacidad máxima es requerido</mat-error
           >
         </mat-form-field>
 
         <mat-form-field fxFill appearance="outline">
-          <input
-            matInput
-            type="number"
-            [placeholder]="room ? room.occupancy.toString() : 'Ocupación'"
-            formControlName="occupancy"
-          />
+          <input matInput type="number" placeholder="Ocupación" formControlName="occupancy" />
           <mat-error *ngIf="roomForm.controls.occupancy.errors?.required">Ocupación es requerido</mat-error>
         </mat-form-field>
       </form>
