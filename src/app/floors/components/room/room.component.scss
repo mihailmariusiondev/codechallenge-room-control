@@ -14,17 +14,6 @@
   .mat-input-room {
     border-radius: 12px;
   }
-
-  .mat-form-field input {
-    height: 20px;
-    transition: height ease-in-out 400ms;
-  }
-
-  .mat-form-field input:focus {
-    background-color: red !important;
-    height: 50px;
-    transition: height ease-in-out 400ms;
-  }
 }
 
 // TODO revise later

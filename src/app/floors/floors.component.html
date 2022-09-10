@@ -31,8 +31,9 @@
         *ngFor="let room of rooms"
         [room]="room"
         [isLoading]="isLoading"
-        (onRoomUpdateEvent)="openDialog(action.UPDATE, $event)"
-        (onRoomDeleteEvent)="openDialog(action.DELETE, $event)"
+        (formControlEvent)="updateRoom($event)"
+        (updateButtonEvent)="openDialog(action.UPDATE, $event)"
+        (deleteButtonEvent)="openDialog(action.DELETE, $event)"
       ></app-room>
     </div>
   </div>

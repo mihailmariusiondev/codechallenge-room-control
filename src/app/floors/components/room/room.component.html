@@ -1,52 +1,60 @@
 <div class="room-container">
-  <mat-card class="mat-card-room">
-    <mat-card-content fxLayout="column">
-      <mat-label fxFill fxLayoutAlign="start center">
-        <h2>{{ room.name }}</h2>
-      </mat-label>
+  <form [formGroup]="formGroupRoom">
+    <mat-card class="mat-card-room">
+      <mat-card-content fxLayout="column">
+        <mat-label fxFill fxLayoutAlign="start center">
+          <h2>{{ room.name }}</h2>
+        </mat-label>
 
-      <mat-label fxFill fxLayoutAlign="start center">
-        <strong>Capacidad máxima</strong>
-      </mat-label>
+        <mat-label fxFill fxLayoutAlign="start center">
+          <strong>Capacidad máxima</strong>
+        </mat-label>
 
-      <mat-form-field fxFill appearance="outline">
-        <input
-          class="mat-input-room"
-          matInput
-          type="number"
-          [placeholder]="room.maximum_capacity.toString()"
-          required
-          [disabled]="true"
-        />
-      </mat-form-field>
+        <mat-form-field fxFill appearance="outline">
+          <input
+            class="mat-input-room"
+            matInput
+            type="number"
+            [placeholder]="room.maximum_capacity.toString()"
+            required
+            formControlName="maximum_capacity"
+          />
+        </mat-form-field>
 
-      <mat-label fxLayoutAlign="start center">
-        <strong>Ocupación</strong>
-      </mat-label>
-      <mat-form-field fxFill appearance="outline">
-        <input
-          class="mat-input-room"
-          matInput
-          type="number"
-          [placeholder]="room.occupancy.toString()"
-          required
-          [disabled]="true"
-        />
-        <mat-icon matSuffix>percent</mat-icon>
-      </mat-form-field>
-    </mat-card-content>
+        <mat-label fxLayoutAlign="start center">
+          <strong>Ocupación</strong>
+        </mat-label>
+        <mat-form-field fxFill appearance="outline">
+          <input
+            class="mat-input-room"
+            matInput
+            type="number"
+            [placeholder]="room.occupancy.toString()"
+            required
+            formControlName="occupancy"
+          />
+          <mat-icon matSuffix>percent</mat-icon>
+        </mat-form-field>
+      </mat-card-content>
 
-    <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="25px">
-      <div fxFlex="50%">
-        <button class="mat-card-actions-button-room" fxFill mat-flat-button color="warn" (click)="deleteRoom(room)">
-          Eliminar
-        </button>
-      </div>
-      <div fxFlex="50%">
-        <button class="mat-card-actions-button-room" fxFill mat-flat-button color="primary" (click)="updateRoom(room)">
-          Modificar
-        </button>
-      </div>
-    </mat-card-actions>
-  </mat-card>
+      <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="25px">
+        <div fxFlex="50%">
+          <button class="mat-card-actions-button-room" fxFill mat-flat-button color="warn" (click)="deleteRoom(room)">
+            Eliminar
+          </button>
+        </div>
+        <div fxFlex="50%">
+          <button
+            class="mat-card-actions-button-room"
+            fxFill
+            mat-flat-button
+            color="primary"
+            (click)="updateRoom(room)"
+          >
+            Modificar
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </form>
 </div>
