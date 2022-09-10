@@ -1,3 +1,7 @@
+@use "@angular/material" as mat;
+@import "src/theme/theme-variables";
+
 mat-card {
   margin-top: 20px;
+  background-color: mat.get-color-from-palette($app-accent);
 }
