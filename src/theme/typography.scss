@@ -2,7 +2,7 @@
 /*Github material typography file https://github.com/angular/components/blob/master/src/material/core/typography/_typography.scss */
 
 $template-typography: mat-typography-config(
-  $font-family: "Helvetica",
+  $font-family: '"Helvetica", Roboto, sans-serif',
   $display-4: mat-typography-level(112px, 112px, 300),
   /* 112px, one-off header, usually at the top of the page (e.g. a hero header). */ $display-3:
     mat-typography-level(66px, 56px, 400),
