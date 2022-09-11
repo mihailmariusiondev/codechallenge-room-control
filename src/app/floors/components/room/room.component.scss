@@ -6,24 +6,4 @@
     margin-top: 20px;
     background-color: mat.get-color-from-palette($app-accent);
   }
-
-  .mat-card-actions-button-room {
-    border-radius: 12px;
-  }
-
-  .mat-input-room {
-    border-radius: 12px;
-  }
-}
-
-// TODO revise later
-/* Set top-lef and bottom-left corner radius */
-:host ::ng-deep .mat-form-field-outline-start {
-  border-radius: 12px 0 0 12px !important;
-  min-width: 12px !important;
-}
-
-/* Set top-right and bottom-right corner radius */
-:host ::ng-deep .mat-form-field-outline-end {
-  border-radius: 0 12px 12px 0 !important;
 }

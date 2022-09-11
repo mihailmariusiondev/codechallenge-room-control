@@ -15,3 +15,41 @@ body {
   margin: 0;
   height: 100%;
 }
+
+// MATERIAL OVERWRITE STYLES ===================================================
+// =============================================================================
+
+// MAT FORM FIELD INPUT STYLES
+
+// Set top-lef and bottom-left corner radius
+.mat-form-field-outline-start {
+  border-radius: 12px 0 0 12px !important;
+  min-width: 12px !important;
+}
+
+/* Set top-right and bottom-right corner radius */
+.mat-form-field-outline-end {
+  border-radius: 0 12px 12px 0 !important;
+}
+
+// BUTTONS
+
+.mat-button,
+.mat-stroked-button {
+  border-radius: 12px !important;
+}
+.mat-button:hover,
+.mat-stroked-button:hover {
+  border-radius: 12px !important;
+}
+
+.mat-raised-button,
+.mat-flat-button,
+.mat-fab,
+.mat-mini-fab {
+  border-radius: 12px !important;
+}
+
+.mat-icon-button {
+  border-radius: 12px !important;
+}
