@@ -4,10 +4,6 @@
 .floors-container {
   padding: 1em;
 
-  mat-divider {
-    width: 100%;
-  }
-
   .rooms-container {
     border-radius: 26px;
     border: 1px mat.get-color-from-palette($app-primary) solid;
