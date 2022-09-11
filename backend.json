@@ -14,8 +14,8 @@
       "id": 1,
       "floor_id": 1,
       "name": "Sala 1",
-      "maximum_capacity": 11,
-      "occupancy": 22
+      "maximum_capacity": 1,
+      "occupancy": 2
     },
     {
       "id": 2,

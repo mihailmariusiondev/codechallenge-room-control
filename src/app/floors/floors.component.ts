@@ -61,7 +61,7 @@ export class FloorsComponent implements OnInit {
 
   openDialog(action: RoomActions, room?: Room) {
     const dialogRef = this.dialog.open(RoomDialogBoxComponent, {
-      maxWidth: '500px',
+      maxWidth: '300px',
       data: { floor: this.selectedFloor, room: room, action: action },
     });
 
