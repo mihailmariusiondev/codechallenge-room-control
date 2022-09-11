@@ -12,20 +12,27 @@
     <div mat-dialog-content>
       <form [formGroup]="roomForm">
         <mat-form-field fxFill appearance="outline">
-          <input matInput type="text" [placeholder]="room ? room.name : 'Nombre de la sala'" formControlName="name" />
+          <input matInput type="text" placeholder="Nombre de la sala" formControlName="name" />
           <mat-error *ngIf="roomForm.controls.name.errors?.required">Nombre de la sala es requerido</mat-error>
+          <mat-error *ngIf="roomForm.controls.name.errors?.maxlength"
+            >Nombre de la sala no debe superar los 100 caracteres</mat-error
+          >
         </mat-form-field>
 
         <mat-form-field fxFill appearance="outline">
-          <input matInput type="number" [placeholder]="'Capacidad máxima'" formControlName="maximum_capacity" />
+          <input matInput type="number" placeholder="Capacidad máxima" formControlName="maximum_capacity" />
           <mat-error *ngIf="roomForm.controls.maximum_capacity.errors?.required"
             >Capacidad máxima es requerido</mat-error
+          >
+          <mat-error *ngIf="roomForm.controls.maximum_capacity.errors?.max"
+            >Capacidad máxima debe ser menor de 100</mat-error
           >
         </mat-form-field>
 
         <mat-form-field fxFill appearance="outline">
           <input matInput type="number" placeholder="Ocupación" formControlName="occupancy" />
           <mat-error *ngIf="roomForm.controls.occupancy.errors?.required">Ocupación es requerido</mat-error>
+          <mat-error *ngIf="roomForm.controls.occupancy.errors?.max">Ocupación debe ser menor de 100</mat-error>
         </mat-form-field>
       </form>
     </div>

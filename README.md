@@ -1,9 +1,4 @@
-# codechallenge
-
-This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)
-version 10.1.2
-
-# Getting started
+# 1. Steps to launch the project
 
 1. Go to project folder and install dependencies:
 
@@ -28,6 +23,77 @@ npm start
 ```sh
 json-server --watch backend.json --port 3001
 ```
+
+# 2. Explanation of the decisions I've made
+
+- Decided to use json-server as a fake backend server because it's easier to set up and gives me all the neccesary endpoints (GET, POST, PATCH, DELETE) based on a json-like structure
+
+- Created `@app/@shared/api/<services>` directory so all the API services could be found in there
+
+- Had to update the model so it matched my needs better. First I had this structure and a single `floor.service.ts`:
+
+```json
+"floors": [
+    {
+        "id": 1,
+        "name": "Planta 1",
+        "rooms": [
+            {
+                "id": 1,
+                "name": "asddddddddddddddddddddddddddddddddddddddddd",
+                "maximum_capacity": 222222,
+                "occupancy": 4423452342
+            }
+        ]
+    }
+]
+```
+
+Then, I had to update it like this (and two services `floor.service.ts` and `room.service.ts`). This assumes **floors** have a 1-N relationship with **rooms** in the database:
+
+```json
+"floors": [
+    {
+        "id": 1,
+        "name": "Planta 1"
+    }
+],
+"rooms": [
+    {
+        "id": 1,
+        "floor_id": 1,
+        "name": "Planta 1",
+        "maximum_capacity": 50,
+        "occupancy": 20
+    },
+    {
+        "id": 2,
+        "floor_id": 1,
+        "name": "Sala 2",
+        "maximum_capacity": 30,
+        "occupancy": 15
+    }
+]
+```
+
+- Palette was created based on the primary and accent colors I had: azul oscuro (#2E344D) y azul claro (#F5F7FB)
+
+- Feature added: each room can be updated by directly typing into the inputs (default delay is 1 second)
+
+# 3. Problems encountered during this challenge:
+
+- Some imports in some modules were wrong
+- Room component was not inside a parent form (`<form [formGroup]="formGroupRoom">`), giving me some troubles
+- Had to edit `tsconfig.json` to supress a few compiling errors (property 'name' comes from an index signature, so it must be accessed with ['name'])
+- Some problems with mat-select firing twice (calling wrong method on the wrong html tag)
+- Some problems with backdrop of mat dialog (I was not contemplating user selecting outside without doing any action)
+
+---
+
+# codechallenge
+
+This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)
+version 10.1.2
 
 # Project structure
 
@@ -152,14 +218,3 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Updating dependencies and tools](docs/updating.md)
 - [Using a backend proxy for development](docs/backend-proxy.md)
 - [Browser routing](docs/routing.md)
-
----
-
-# Problems encountered during this challenge:
-
-- Some imports in some modules were wrong
-- I was trying to create the same form (duplicating formControlNames in the process) for each room, resulting in compilation errors
-- Had to edit `tsconfig.json` to supress a few compiling errors
-- Some problems with mat-select firing twice
-- Some problems with backdrop of mat dialog
-- Had to update the model so it matched my needs better (I was complicating my life having rooms inside floor as array)

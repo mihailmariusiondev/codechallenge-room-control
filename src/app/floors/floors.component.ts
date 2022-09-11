@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FloorService } from '@app/@shared';
 import { Floor, RoomActions } from '@app/@shared/models/floor';
 import { Room } from '@app/@shared/models/room';
-import { RoomService } from '@app/@shared/room.service';
+import { RoomService } from '@app/@shared/api/room.service';
 import { finalize } from 'rxjs';
 import { RoomDialogBoxComponent } from './components/room-dialog-box/room-dialog-box.component';
+import { FloorService } from '@app/@shared/api/floor.service';
 
 @Component({
   selector: 'app-floors',

@@ -1,5 +1,5 @@
 <div class="room-container">
-  <form [formGroup]="formGroupRoom">
+  <form [formGroup]="roomForm">
     <mat-card class="mat-card-room">
       <mat-card-content fxLayout="column">
         <mat-label fxFill fxLayoutAlign="start center">
@@ -11,28 +11,22 @@
         </mat-label>
 
         <mat-form-field fxFill appearance="outline">
-          <input
-            class="mat-input-room"
-            matInput
-            type="number"
-            [placeholder]="room.maximum_capacity.toString()"
-            required
-            formControlName="maximum_capacity"
-          />
+          <input class="mat-input-room" matInput type="number" required formControlName="maximum_capacity" />
+          <mat-error *ngIf="roomForm.controls.maximum_capacity.errors?.required"
+            >Capacidad máxima es requerido</mat-error
+          >
+          <mat-error *ngIf="roomForm.controls.maximum_capacity.errors?.max"
+            >Capacidad máxima debe ser menor de 100</mat-error
+          >
         </mat-form-field>
 
         <mat-label fxLayoutAlign="start center">
           <strong>Ocupación</strong>
         </mat-label>
         <mat-form-field fxFill appearance="outline">
-          <input
-            class="mat-input-room"
-            matInput
-            type="number"
-            [placeholder]="room.occupancy.toString()"
-            required
-            formControlName="occupancy"
-          />
+          <input class="mat-input-room" matInput type="number" required formControlName="occupancy" />
+          <mat-error *ngIf="roomForm.controls.occupancy.errors?.required">Ocupación es requerido</mat-error>
+          <mat-error *ngIf="roomForm.controls.occupancy.errors?.max">Ocupación debe ser menor de 100</mat-error>
           <mat-icon matSuffix>percent</mat-icon>
         </mat-form-field>
       </mat-card-content>

@@ -10,7 +10,7 @@ import { debounceTime, Subject, takeUntil } from 'rxjs';
 })
 export class RoomComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
-  formGroupRoom!: FormGroup;
+  roomForm!: FormGroup;
   @Input() room!: Room;
   @Input() isLoading!: boolean;
 
@@ -21,16 +21,18 @@ export class RoomComponent implements OnInit, OnDestroy {
   constructor() {}
 
   ngOnInit() {
-    this.formGroupRoom = new FormBuilder().group({
+    this.roomForm = new FormBuilder().group({
       id: new FormControl(this.room?.id),
       floor_id: new FormControl(this.room?.floor_id),
       name: new FormControl(this.room?.name),
-      maximum_capacity: new FormControl(this.room?.maximum_capacity, Validators.minLength(2)),
-      occupancy: new FormControl(this.room?.occupancy, Validators.minLength(2)),
+      maximum_capacity: new FormControl(this.room?.maximum_capacity, [Validators.required, Validators.max(99)]),
+      occupancy: new FormControl(this.room?.occupancy, [Validators.required, Validators.max(99)]),
     });
 
-    this.formGroupRoom.valueChanges.pipe(takeUntil(this.destroy$), debounceTime(1000)).subscribe(() => {
-      this.formControlEvent.emit(this.formGroupRoom.value as Room);
+    this.roomForm.valueChanges.pipe(takeUntil(this.destroy$), debounceTime(1000)).subscribe(() => {
+      if (this.roomForm.valid) {
+        this.formControlEvent.emit(this.roomForm.value as Room);
+      }
     });
   }
 

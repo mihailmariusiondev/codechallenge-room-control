@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Floor, RoomActions } from '@app/@shared/models/floor';
 import { Room } from '@app/@shared/models/room';
@@ -25,12 +25,12 @@ export class RoomDialogBoxComponent {
     this.room = data.room;
     this.action = data.action;
 
-    this.roomForm = this.formBuilder.group({
-      id: [this.room?.id || Date.now()],
-      name: [this.room?.id, [Validators.maxLength(100), Validators.required]],
-      floor_id: [this.floor.id, [Validators.maxLength(100), Validators.required]],
-      maximum_capacity: [this.room?.maximum_capacity, [Validators.required]],
-      occupancy: [this.room?.occupancy, [Validators.required]],
+    this.roomForm = new FormBuilder().group({
+      id: new FormControl(this.room?.id || Date.now()),
+      floor_id: new FormControl(this.room?.floor_id),
+      name: new FormControl(this.room?.name, [Validators.required, Validators.maxLength(25)]),
+      maximum_capacity: new FormControl(this.room?.maximum_capacity, [Validators.required, Validators.max(99)]),
+      occupancy: new FormControl(this.room?.occupancy, [Validators.required, Validators.max(99)]),
     });
   }
 
