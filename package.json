@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "build": "npm run write:env -s && ng build",
-    "start": "npm run write:env -s && ng serve --proxy-config proxy.conf.js",
+    "start": "npm run write:env -s && ng serve --proxy-config proxy.conf.js --port 4201",
     "deploy": "npm run write:env -s && ng deploy --base-href=https://mihailmariusiondev.github.io/codechallenge-room-control/",
     "serve:sw": "npm run build -s && npx http-server ./dist -p 4200",
     "lint": "ng lint && stylelint \"src/**/*.scss\"",
