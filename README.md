@@ -26,11 +26,9 @@ json-server --watch backend.json --port 3001
 
 # 2. Explanation of the decisions I've made
 
-- Decided to use json-server as a fake backend server because it's easier to set up and gives me all the neccesary endpoints (GET, POST, PATCH, DELETE) based on a json-like structure
-
-- Created `@app/@shared/api/<services>` directory so all the API services could be found in there
-
-- Had to update the model so it matched my needs better. First I had this structure and a single `floor.service.ts`:
+- Decided to use json-server as a fake backend server because it's easier to set up and gives me all the neccesary CRUD actions (GET, POST, PATCH, DELETE) based on a json-like structure
+- Created `@app/@shared/` directory should contain all the common declarations of the app can be found there (services, components, directives, snippets, pipes)
+- Had to update the model so it matched my needs better. First I had this structure and a single `floor.service.ts` (this is the common scenario, where entities are related with each other with foreign keys in the database):
 
 ```json
 "floors": [
@@ -40,16 +38,16 @@ json-server --watch backend.json --port 3001
         "rooms": [
             {
                 "id": 1,
-                "name": "asddddddddddddddddddddddddddddddddddddddddd",
-                "maximum_capacity": 222222,
-                "occupancy": 4423452342
+                "name": "Sala 1",
+                "maximum_capacity": 50,
+                "occupancy": 20
             }
         ]
     }
 ]
 ```
 
-Then, I had to update it like this (and two services `floor.service.ts` and `room.service.ts`). This assumes **floors** have a 1-N relationship with **rooms** in the database:
+Then, I had to update it like this (and two services `floor.service.ts` and `room.service.ts`):
 
 ```json
 "floors": [
@@ -76,8 +74,9 @@ Then, I had to update it like this (and two services `floor.service.ts` and `roo
 ]
 ```
 
-- Palette was created based on the primary and accent colors I had: azul oscuro (#2E344D) y azul claro (#F5F7FB)
-
+- Colores: azul oscuro (#2E344D) y azul claro (#F5F7FB) -> Palette was created based on those primary and accent colors
+- Border-radius inputs and buttons: 12px -> I assumed all inputs and buttons were gonna be like this through the whole app, so global styles were added in `theme.scss` affecting all inputs and buttons
+- Fuente: Helvetica -> I assumed the font that was going to be used through the whole app, so a `typography.scss` file was added and configured under `theme-variables.scss` globally (note: this affects angular material components only, normal `<h1>` or similar text tags still need to be specified their typography).
 - Feature added: each room can be updated by directly typing into the inputs (default delay is 1 second)
 
 # 3. Problems encountered during this challenge:
