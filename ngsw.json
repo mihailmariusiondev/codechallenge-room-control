@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1663000115227,
+  "timestamp": 1663017950583,
   "index": "https://mihailmariusiondev.github.io/codechallenge-room-control/index.html",
   "assetGroups": [
     {
@@ -12,13 +12,13 @@
       },
       "urls": [
         "https://mihailmariusiondev.github.io/codechallenge-room-control/10.dc2f99f59831d2df.js",
-        "https://mihailmariusiondev.github.io/codechallenge-room-control/147.cd99ebd679f6b43b.js",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/147.3b84a25f32a7c7dc.js",
         "https://mihailmariusiondev.github.io/codechallenge-room-control/favicon.ico",
         "https://mihailmariusiondev.github.io/codechallenge-room-control/index.html",
-        "https://mihailmariusiondev.github.io/codechallenge-room-control/main.06b83ab0ad94d827.js",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/main.c5e67d57e4d34675.js",
         "https://mihailmariusiondev.github.io/codechallenge-room-control/manifest.webmanifest",
         "https://mihailmariusiondev.github.io/codechallenge-room-control/polyfills.af8ddce1628aa949.js",
-        "https://mihailmariusiondev.github.io/codechallenge-room-control/runtime.b4e766ce05fabf87.js",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/runtime.35d6ecb341db0302.js",
         "https://mihailmariusiondev.github.io/codechallenge-room-control/styles.dfa3e8357c72fc4c.css"
       ],
       "patterns": []
@@ -44,7 +44,7 @@
   "dataGroups": [],
   "hashTable": {
     "https://mihailmariusiondev.github.io/codechallenge-room-control/10.dc2f99f59831d2df.js": "0c5d99436722e835eaced82aff3b1a472904525c",
-    "https://mihailmariusiondev.github.io/codechallenge-room-control/147.cd99ebd679f6b43b.js": "0f93214662c4aa83fe7846da0000743d9baaabd7",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/147.3b84a25f32a7c7dc.js": "900c5d164c4a6dd6fa7df7282d8449544e1f63f9",
     "https://mihailmariusiondev.github.io/codechallenge-room-control/MaterialIcons-Regular.14b0bb77466d9f38.woff": "e5fa525648c74213cdeb8554aa77057f0c4d8488",
     "https://mihailmariusiondev.github.io/codechallenge-room-control/MaterialIcons-Regular.d1b99623aaa86364.woff2": "7e67acf56f6d527980504c3d0dd2a30d706e5339",
     "https://mihailmariusiondev.github.io/codechallenge-room-control/MaterialIcons-Regular.fa58bcb97f2ed321.ttf": "b582b869fe05f35f5a1d08cdf50b2b5eb37bae44",
@@ -52,11 +52,11 @@
     "https://mihailmariusiondev.github.io/codechallenge-room-control/assets/ngx-rocket-logo.png": "0ac53fd27406fe5a36e68285315fb0012e54058e",
     "https://mihailmariusiondev.github.io/codechallenge-room-control/assets/ngx-rocket-logo@192.png": "461b730f9c6dc818f8af9acbe62dfde24dc02d7a",
     "https://mihailmariusiondev.github.io/codechallenge-room-control/favicon.ico": "b65083d46bbf63692d5d2cdd69622e6d7ecae317",
-    "https://mihailmariusiondev.github.io/codechallenge-room-control/index.html": "fc868457f1fcf84f3649fc87f6549182dbf24438",
-    "https://mihailmariusiondev.github.io/codechallenge-room-control/main.06b83ab0ad94d827.js": "a8cc2b53cb345aa9d010dd01dfa8723c22a96f16",
-    "https://mihailmariusiondev.github.io/codechallenge-room-control/manifest.webmanifest": "7db208ad4941b8ee8c3e7b0d1fe5378d8c6f9b94",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/index.html": "c0ed9551f979db07fef87742f4acf2b49d3f338f",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/main.c5e67d57e4d34675.js": "792cf82fb8f24cf47abf09ae93afd988694bd088",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/manifest.webmanifest": "f12ac33fdffb5286e6753b0678091b408e11b314",
     "https://mihailmariusiondev.github.io/codechallenge-room-control/polyfills.af8ddce1628aa949.js": "9eb409eb319ded159f50addee3022832b36d184a",
-    "https://mihailmariusiondev.github.io/codechallenge-room-control/runtime.b4e766ce05fabf87.js": "be1d430a33413f4a6a857a78a4d0866f730f090e",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/runtime.35d6ecb341db0302.js": "2d34d8f0e0de192f7973f9c56bace041b18a130f",
     "https://mihailmariusiondev.github.io/codechallenge-room-control/styles.dfa3e8357c72fc4c.css": "ac93c50c7adb34f467d4c2a44b42a19c8f644058"
   },
   "navigationUrls": [
