@@ -25,6 +25,18 @@
       </div>
     </div>
 
+    <div fxFill *ngIf="selectedFloor">
+      <app-searchbar
+        title="Buscar planta"
+        [isLoading]="isLoading"
+        [includeCreateButton]="false"
+        (buttonRefreshEvent)="getFloors()"
+        (searchQueryEvent)="getRoomsByName($event)"
+        (buttonCreateEvent)="openDialog(action.CREATE)"
+      >
+      </app-searchbar>
+    </div>
+
     <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutAlign.xs="center center" fxLayoutGap="15px">
       <app-room
         *ngFor="let room of rooms"

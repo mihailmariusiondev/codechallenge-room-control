@@ -1,0 +1,30 @@
+@use "@angular/material" as mat;
+@import "src/theme/theme-variables";
+
+.searchbar-container {
+  input {
+    outline: none;
+    border: 0;
+    padding-left: 8px;
+    border-radius: 15px;
+    background-color: mat.get-color-from-palette($app-accent);
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+  }
+
+  span {
+    font-size: 18px;
+  }
+
+  mat-card {
+    padding: 8px 16px;
+    background-color: mat.get-color-from-palette($app-accent);
+  }
+}
+
+.outline {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}

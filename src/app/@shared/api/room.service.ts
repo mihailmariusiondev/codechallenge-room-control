@@ -32,6 +32,13 @@ export class RoomService {
     );
   }
 
+  getRoomsByName(name: string): Observable<Room[]> {
+    return this.httpClient.get<Room[]>(`/rooms?name_like=${name}`).pipe(
+      map((body: Room[]) => body),
+      catchError(() => of([]))
+    );
+  }
+
   updateRoom(room: Room): Observable<Room> {
     return this.httpClient.patch<Room>(`/rooms/${room.id}`, room).pipe(
       map((body: Room) => body),

@@ -1,0 +1,44 @@
+<div class="searchbar-container">
+  <mat-card [ngClass]="{ 'mat-elevation-z0': outline, outline: outline }" color="primary">
+    <div *ngIf="!isSearchToolbarVisible" fxLayout="row" fxLayoutAlign="space-between center">
+      <span>{{ title }}</span>
+      <div fxFlex></div>
+      <button
+        mat-icon-button
+        (click)="toggleSearchToolbar()"
+        [disabled]="isLoading"
+        matTooltip="Buscar"
+        *ngIf="includeSearchButton"
+      >
+        <mat-icon aria-label="search">search</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        (click)="onButtonRefreshPressed()"
+        [disabled]="isLoading"
+        matTooltip="Refrescar"
+        *ngIf="includeRefreshButton"
+      >
+        <mat-icon aria-label="refresh">cached</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="primary"
+        (click)="onButtonCreatePressed()"
+        matTooltip="Crear"
+        *ngIf="includeCreateButton"
+      >
+        <mat-icon aria-label="add">add</mat-icon>
+      </button>
+    </div>
+    <div *ngIf="isSearchToolbarVisible" fxLayout="row" fxLayoutAlign="space-between center">
+      <input #searchInput autofocus fxFlex="100" [formControl]="searchQueryForm" placeholder="Buscar" />
+      <div fxFlex></div>
+      <button mat-icon-button (click)="toggleSearchToolbar()">
+        <mat-icon aria-label="close">close</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+  <mat-progress-bar mode="query" color="primary" style="height: 2px" *ngIf="isLoading"></mat-progress-bar>
+  <mat-progress-bar mode="query" color="accent" style="height: 2px" *ngIf="isCreating"></mat-progress-bar>
+</div>

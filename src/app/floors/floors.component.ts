@@ -59,6 +59,21 @@ export class FloorsComponent implements OnInit {
       });
   }
 
+  getRoomsByName(name: string) {
+    console.log(name);
+    this.isLoading = true;
+    this.roomService
+      .getRoomsByName(name)
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+        })
+      )
+      .subscribe((rooms: Room[]) => {
+        this.rooms = rooms;
+      });
+  }
+
   openDialog(action: RoomActions, room?: Room) {
     const dialogRef = this.dialog.open(RoomDialogBoxComponent, {
       maxWidth: '300px',
