@@ -3,7 +3,7 @@
 
   <div fxFill>
     <mat-form-field appearance="outline">
-      <mat-select (selectionChange)="onSelectionFloorChange($event.value)">
+      <mat-select (selectionChange)="onSelectionFloorChange($event.value)" placeholder="Selecciona planta...">
         <mat-option *ngFor="let floor of floors" [value]="floor">
           {{ floor.name }}
         </mat-option>
