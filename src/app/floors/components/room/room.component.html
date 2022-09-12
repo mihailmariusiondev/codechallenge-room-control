@@ -11,7 +11,7 @@
         </mat-label>
 
         <mat-form-field fxFill appearance="outline">
-          <input matInput type="number" required formControlName="maximum_capacity" />
+          <input matInput type="number" required formControlName="maximum_capacity" [value]="room.maximum_capacity" />
           <mat-error *ngIf="roomForm.controls.maximum_capacity.errors?.required"
             >Capacidad máxima es requerido</mat-error
           >
@@ -24,7 +24,7 @@
           <strong>Ocupación</strong>
         </mat-label>
         <mat-form-field fxFill appearance="outline">
-          <input matInput type="number" required formControlName="occupancy" />
+          <input matInput type="number" required formControlName="occupancy" [value]="room.occupancy" />
           <mat-error *ngIf="roomForm.controls.occupancy.errors?.required">Ocupación es requerido</mat-error>
           <mat-error *ngIf="roomForm.controls.occupancy.errors?.max">Ocupación debe ser menor de 100</mat-error>
           <mat-icon matSuffix>percent</mat-icon>
