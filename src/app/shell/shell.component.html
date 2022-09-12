@@ -21,13 +21,13 @@
             <mat-icon mat-list-icon [inline]="true">space_dashboard</mat-icon>
           </a>
           <mat-divider></mat-divider>
-          <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="isMobile && sidenav.close()">
-            <span translate>About</span>
-            <mat-icon mat-list-icon [inline]="true">info_outline</mat-icon>
-          </a>
           <a mat-list-item routerLink="/floors" routerLinkActive="active" (click)="isMobile && sidenav.close()">
             <span translate>Salas</span>
             <mat-icon mat-list-icon [inline]="true">meeting_room</mat-icon>
+          </a>
+          <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+            <span translate>About</span>
+            <mat-icon mat-list-icon [inline]="true">info_outline</mat-icon>
           </a>
           <mat-divider></mat-divider>
         </mat-list>

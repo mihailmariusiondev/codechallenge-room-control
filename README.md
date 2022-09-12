@@ -1,10 +1,10 @@
-# Table of contents
+# Tabla de contenido
 
-- [Table of contents](#table-of-contents)
-- [1. Steps to launch the project](#1-steps-to-launch-the-project)
-- [2. Explanation of the decisions I've made](#2-explanation-of-the-decisions-ive-made)
-- [3. Problems encountered during this challenge](#3-problems-encountered-during-this-challenge)
-- [codechallenge](#codechallenge)
+- [Tabla de contenido](#tabla-de-contenido)
+- [1. Pasos para lanzar el proyecto](#1-pasos-para-lanzar-el-proyecto)
+- [2. Explicación de las decisiones que he tomado](#2-explicación-de-las-decisiones-que-he-tomado)
+- [3. Problemas encontrados durante este reto](#3-problemas-encontrados-durante-este-reto)
+- [El resto del readme](#el-resto-del-readme)
 - [Project structure](#project-structure)
 - [Main tasks](#main-tasks)
   - [Development server](#development-server)
@@ -19,102 +19,111 @@
 
 ---
 
-# 1. Steps to launch the project
+# 1. Pasos para lanzar el proyecto
 
-1. Go to project folder and install dependencies:
+1. Ir a la carpeta del proyecto e instalar las dependencias:
 
 ```sh
 npm ci
 ```
 
-Also, install [JSON Server](https://github.com/typicode/json-server) (fake backend server)
+Además, instala [JSON Server](https://github.com/typicode/json-server) (falso servidor backend)
 
 ```sh
 npm install -g json-server
 ```
 
-2. Launch development server, and open `localhost:4200` in your browser:
+2. Inicia el servidor de desarrollo y abre `localhost:4201` en tu navegador:
 
 ```sh
 npm start
 ```
 
-3. In a separate terminal, start [JSON Server](https://github.com/typicode/json-server) (fake backend server)
+3. En una terminal separada, inicia [JSON Server](https://github.com/typicode/json-server) (falso servidor backend)
 
 ```sh
-json-server --watch backend.json --port 3001
+json-server --watch db.json --port 3001
 ```
 
-# 2. Explanation of the decisions I've made
+# 2. Explicación de las decisiones que he tomado
 
-- Decided to use [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/) as it makes my life easier when creating an Angular app from scratch
-- Decided to use json-server as a fake backend server because it's easier to set up and gives me all the necessary CRUD actions (GET, POST, PATCH, DELETE) based on a json-like structure
-- Created `@app/@shared/` directory should contain all the common declarations of the app can be found there (services, components, directives, snippets, pipes)
-- Had to update the model, so it matched my needs better. First I had this structure and a single `floor.service.ts` (this is the common scenario, where entities are related with each other with foreign keys in the database):
+- Decidí usar el inicializador de proyectos [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/) porque me facilita la vida al crear una aplicación Angular desde cero
+- Decidí usar [JSON Server](https://github.com/typicode/json-server) (falso servidor backend) como falso servidor backend porque es muy rápido de configurar (solo necesito un JSON válido) y me da todas las acciones CRUD necesarias (GET, POST, PATCH, DELETE) basadas en esa estructura JSON
+- El directorio `@app/@shared/` debería contener todas las declaraciones comunes de la aplicación (servicios, componentes, directivas, snippets, pipes, etc) y facilita la reutilización de los mismos en todos los módulos de la aplicación
+- Tuve que actualizar el modelo que usaba para que se ajustara mejor a mis necesidades. Primero tenía esta estructura y un único servicio `floor.service.ts` (este es el escenario más común, donde las entidades están relacionadas entre sí con claves foráneas en la base de datos):
 
 ```json
 "floors": [
     {
         "id": 1,
-        "name": "Planta 1",
+        ...
         "rooms": [
             {
                 "id": 1,
-                "name": "Sala 1",
-                "maximum_capacity": 50,
-                "occupancy": 20
+                ...
             }
         ]
     }
 ]
 ```
 
-Then, I had to update it like this (and two services `floor.service.ts` and `room.service.ts`):
+Después, tuve que actualizarlo para que quedara así (además, tuve que crear un servicio nuevo `room.service.ts`):
 
 ```json
 "floors": [
     {
         "id": 1,
-        "name": "Planta 1"
+        ...
     }
 ],
 "rooms": [
     {
         "id": 1,
         "floor_id": 1,
-        "name": "Planta 1",
-        "maximum_capacity": 50,
-        "occupancy": 20
+        ...
     },
     {
         "id": 2,
         "floor_id": 1,
-        "name": "Sala 2",
-        "maximum_capacity": 30,
-        "occupancy": 15
+        ...
     }
 ]
 ```
 
-- Colores: azul oscuro (#2E344D) y azul claro (#F5F7FB) → Palette was created based on those primary and accent colors
-- Border-radius inputs and buttons: 12px → I assumed all inputs and buttons were going to be like this through the whole app, so global styles were added in `theme.scss` affecting all inputs and buttons
-- Fuente: Helvetica → I assumed the font that was going to be used through the whole app, so a `typography.scss` file was added and configured under `theme-variables.scss` globally (note: this affects angular material components only, normal `<h1>` or similar text tags still need to be specified their typography).
-- Feature added: each room can be updated by directly typing into the inputs (default delay is 1 second)
+- Decidí montar un pequeño **backend** de node.js en [Heroku](https://www.heroku.com/) para que la aplicación desplegada en producción pudiera alimentarse de datos reales bajo la siguiente URL:
 
-# 3. Problems encountered during this challenge
+  https://json-server-heroku-floors.herokuapp.com
 
-- Some imports in some modules were wrong
-- Room component was not inside a parent form (`<form [formGroup]="formGroupRoom">`), giving me some troubles
-- Had to edit `tsconfig.json` to suppress a few compiling errors (property 'name' comes from an index signature, so it must be accessed with ['name'])
-- Some problems with mat-select firing twice (calling wrong method on the wrong HTML tag)
-- Some problems with backdrop of mat dialog (I was not contemplating user selecting outside without doing any action)
+- La aplicación **frontend** se despliega en [Github Pages](https://pages.github.com/) mediante angular-cli-ghpages bajo la siguiente URL:
+
+  https://mihailmariusiondev.github.io/codechallenge-room-control/floors
+
+- **Colores: azul oscuro (#2E344D) y azul claro (#F5F7FB)** → La paleta de la aplicación (`palette.scss`) fue creada basándome en base a esos dos colores (**primary** y **accent**) y configurada en el fichero principal `main.scss`
+- **Border-radio inputs y botones: 12px** → En base a este requisito, asumí que todos los inputs y botones de la aplicación tendrían que ser así en toda la app, así que se añadieron estilos globales en `theme.scss` que afectan a todos los inputs y botones
+- **Fuente: Helvetica** → En base a este requisito, asumí que ésta iba a ser la tipografía que se iba a utilizar en toda la app, por lo que se añadió un archivo `typography.scss` y se configuró en `theme-variables.scss` globalmente (nota: esto afecta sólo a los componentes de Angular Material, las etiquetas de texto normales como `<h1>`, `<span>` o similares todavía necesitan especificar su tipografía individualmente, bien sea en el fichero de estilos de cada componente, bien a nivel global en `theme.scss`).
+- La aplicación es **responsive**, se adapta a todo tipo de pantallas
+- **Feature**: la información de cada room puede ser actualizada directamente escribiendo en los inputs (la información se guarda en el servidor después de 1 segundo al dejar de escribir)
+- **Feature**: añadí un searchbar para facilitar la búsqueda de salas mediante el nombre
+
+# 3. Problemas encontrados durante este reto
+
+- Algunas importaciones en algunos módulos eran erróneas
+- El componente Room no estaba dentro de un formulario padre (`<form [formGroup]="formGroupRoom">`), dándome algunos problemas
+- Tuve que editar `tsconfig.json` para suprimir algunos errores de compilación (no podía acceder a las propiedades directamente de la template)
+- Algunos problemas con `mat-select` que se disparaba dos veces (llamaba al método en la etiqueta HTML equivocada)
+- Algunos problemas con `backdrop` del `mat-dialog` (no contemplaba que el usuario seleccionara fuera al modificar una sala sin hacer ninguna acción)
 
 ---
 
-# codechallenge
+---
 
-This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)
-version 10.1.2
+---
+
+---
+
+---
+
+# El resto del readme
 
 # Project structure
 

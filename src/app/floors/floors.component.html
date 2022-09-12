@@ -27,7 +27,7 @@
 
     <div fxFill *ngIf="selectedFloor">
       <app-searchbar
-        title="Buscar planta"
+        title="Buscar sala"
         [isLoading]="isLoading"
         [includeCreateButton]="false"
         (buttonRefreshEvent)="getRoomsByFloorId(selectedFloor.id)"
