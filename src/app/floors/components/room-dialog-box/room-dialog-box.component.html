@@ -59,7 +59,11 @@
         [disabled]="!this.roomForm.valid && action !== checkActionEnum.DELETE"
         (click)="doAction()"
       >
-        {{ !room ? 'Añadir' : 'Modificar' }}
+        <span>
+          {{
+            action === checkActionEnum.DELETE ? 'Eliminar' : action === checkActionEnum.UPDATE ? 'Modificar' : 'Añadir'
+          }}
+        </span>
       </button>
     </div>
   </div>

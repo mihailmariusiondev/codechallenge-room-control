@@ -25,8 +25,12 @@ export class RoomService {
   }
 
   getRoomsByFloorId(id: number): Observable<Room[]> {
-    const params = new HttpParams().set('floor_id', id);
-    return this.httpClient.get<Room[]>('/rooms', { params }).pipe(
+    let _params = new HttpParams();
+    _params = _params.set('floor_id', id);
+    _params = _params.set('_sort', 'name');
+    _params = _params.set('_order', 'asc');
+
+    return this.httpClient.get<Room[]>('/rooms', { params: _params }).pipe(
       map((body: Room[]) => body),
       catchError(() => of([]))
     );

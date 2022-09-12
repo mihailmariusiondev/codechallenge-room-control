@@ -30,7 +30,7 @@
         title="Buscar planta"
         [isLoading]="isLoading"
         [includeCreateButton]="false"
-        (buttonRefreshEvent)="getFloors()"
+        (buttonRefreshEvent)="getRoomsByFloorId(selectedFloor.id)"
         (searchQueryEvent)="getRoomsByName($event)"
         (buttonCreateEvent)="openDialog(action.CREATE)"
       >
