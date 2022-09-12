@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1662998769285,
+  "timestamp": 1662999986788,
   "index": "https://mihailmariusiondev.github.io/codechallenge-room-control/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "https://mihailmariusiondev.github.io/codechallenge-room-control/147.cd99ebd679f6b43b.js",
         "https://mihailmariusiondev.github.io/codechallenge-room-control/favicon.ico",
         "https://mihailmariusiondev.github.io/codechallenge-room-control/index.html",
-        "https://mihailmariusiondev.github.io/codechallenge-room-control/main.f4436f9b86857e8a.js",
+        "https://mihailmariusiondev.github.io/codechallenge-room-control/main.06b83ab0ad94d827.js",
         "https://mihailmariusiondev.github.io/codechallenge-room-control/manifest.webmanifest",
         "https://mihailmariusiondev.github.io/codechallenge-room-control/polyfills.af8ddce1628aa949.js",
         "https://mihailmariusiondev.github.io/codechallenge-room-control/runtime.b4e766ce05fabf87.js",
@@ -52,8 +52,8 @@
     "https://mihailmariusiondev.github.io/codechallenge-room-control/assets/ngx-rocket-logo.png": "0ac53fd27406fe5a36e68285315fb0012e54058e",
     "https://mihailmariusiondev.github.io/codechallenge-room-control/assets/ngx-rocket-logo@192.png": "461b730f9c6dc818f8af9acbe62dfde24dc02d7a",
     "https://mihailmariusiondev.github.io/codechallenge-room-control/favicon.ico": "b65083d46bbf63692d5d2cdd69622e6d7ecae317",
-    "https://mihailmariusiondev.github.io/codechallenge-room-control/index.html": "8ae3ad243c081b2671fd4ded6af4529eadc30c36",
-    "https://mihailmariusiondev.github.io/codechallenge-room-control/main.f4436f9b86857e8a.js": "7b1b3d745a6449b1aa256e719a63ac27412ab3a1",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/index.html": "fc868457f1fcf84f3649fc87f6549182dbf24438",
+    "https://mihailmariusiondev.github.io/codechallenge-room-control/main.06b83ab0ad94d827.js": "a8cc2b53cb345aa9d010dd01dfa8723c22a96f16",
     "https://mihailmariusiondev.github.io/codechallenge-room-control/manifest.webmanifest": "7db208ad4941b8ee8c3e7b0d1fe5378d8c6f9b94",
     "https://mihailmariusiondev.github.io/codechallenge-room-control/polyfills.af8ddce1628aa949.js": "9eb409eb319ded159f50addee3022832b36d184a",
     "https://mihailmariusiondev.github.io/codechallenge-room-control/runtime.b4e766ce05fabf87.js": "be1d430a33413f4a6a857a78a4d0866f730f090e",
