@@ -37,8 +37,16 @@
       </app-searchbar>
     </div>
 
-    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutAlign.xs="center center" fxLayoutGap="15px">
+    <div
+      fxLayout="row wrap"
+      fxLayout.xs="column"
+      fxFlex="100"
+      fxLayoutAlign="start center"
+      fxLayoutAlign.xs="center center"
+      fxLayoutGap="15px"
+    >
       <app-room
+        fxFlex.xs="100"
         *ngFor="let room of rooms"
         [room]="room"
         [isLoading]="isLoading"
