@@ -1,3 +1,24 @@
+# Table of contents
+
+- [Table of contents](#table-of-contents)
+- [1. Steps to launch the project](#1-steps-to-launch-the-project)
+- [2. Explanation of the decisions I've made](#2-explanation-of-the-decisions-ive-made)
+- [3. Problems encountered during this challenge](#3-problems-encountered-during-this-challenge)
+- [codechallenge](#codechallenge)
+- [Project structure](#project-structure)
+- [Main tasks](#main-tasks)
+  - [Development server](#development-server)
+  - [Code scaffolding](#code-scaffolding)
+  - [Additional tools](#additional-tools)
+  - [Code formatting](#code-formatting)
+  - [What's in the box](#whats-in-the-box)
+    - [Tools](#tools)
+    - [Libraries](#libraries)
+    - [Coding guides](#coding-guides)
+    - [Other documentation](#other-documentation)
+
+---
+
 # 1. Steps to launch the project
 
 1. Go to project folder and install dependencies:
@@ -26,9 +47,10 @@ json-server --watch backend.json --port 3001
 
 # 2. Explanation of the decisions I've made
 
-- Decided to use json-server as a fake backend server because it's easier to set up and gives me all the neccesary CRUD actions (GET, POST, PATCH, DELETE) based on a json-like structure
+- Decided to use [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/) as it makes my life easier when creating an Angular app from scratch
+- Decided to use json-server as a fake backend server because it's easier to set up and gives me all the necessary CRUD actions (GET, POST, PATCH, DELETE) based on a json-like structure
 - Created `@app/@shared/` directory should contain all the common declarations of the app can be found there (services, components, directives, snippets, pipes)
-- Had to update the model so it matched my needs better. First I had this structure and a single `floor.service.ts` (this is the common scenario, where entities are related with each other with foreign keys in the database):
+- Had to update the model, so it matched my needs better. First I had this structure and a single `floor.service.ts` (this is the common scenario, where entities are related with each other with foreign keys in the database):
 
 ```json
 "floors": [
@@ -74,17 +96,17 @@ Then, I had to update it like this (and two services `floor.service.ts` and `roo
 ]
 ```
 
-- Colores: azul oscuro (#2E344D) y azul claro (#F5F7FB) -> Palette was created based on those primary and accent colors
-- Border-radius inputs and buttons: 12px -> I assumed all inputs and buttons were gonna be like this through the whole app, so global styles were added in `theme.scss` affecting all inputs and buttons
-- Fuente: Helvetica -> I assumed the font that was going to be used through the whole app, so a `typography.scss` file was added and configured under `theme-variables.scss` globally (note: this affects angular material components only, normal `<h1>` or similar text tags still need to be specified their typography).
+- Colores: azul oscuro (#2E344D) y azul claro (#F5F7FB) → Palette was created based on those primary and accent colors
+- Border-radius inputs and buttons: 12px → I assumed all inputs and buttons were going to be like this through the whole app, so global styles were added in `theme.scss` affecting all inputs and buttons
+- Fuente: Helvetica → I assumed the font that was going to be used through the whole app, so a `typography.scss` file was added and configured under `theme-variables.scss` globally (note: this affects angular material components only, normal `<h1>` or similar text tags still need to be specified their typography).
 - Feature added: each room can be updated by directly typing into the inputs (default delay is 1 second)
 
-# 3. Problems encountered during this challenge:
+# 3. Problems encountered during this challenge
 
 - Some imports in some modules were wrong
 - Room component was not inside a parent form (`<form [formGroup]="formGroupRoom">`), giving me some troubles
-- Had to edit `tsconfig.json` to supress a few compiling errors (property 'name' comes from an index signature, so it must be accessed with ['name'])
-- Some problems with mat-select firing twice (calling wrong method on the wrong html tag)
+- Had to edit `tsconfig.json` to suppress a few compiling errors (property 'name' comes from an index signature, so it must be accessed with ['name'])
+- Some problems with mat-select firing twice (calling wrong method on the wrong HTML tag)
 - Some problems with backdrop of mat dialog (I was not contemplating user selecting outside without doing any action)
 
 ---
@@ -166,16 +188,16 @@ All `.ts`, `.js` & `.scss` files in this project are formatted automatically usi
 and enforced via the `test:ci` script.
 
 A pre-commit git hook has been configured on this project to automatically format staged files, using
-(pretty-quick)[https://github.com/azz/pretty-quick], so you don't have to care for it.
+[pretty-quick](https://github.com/azz/pretty-quick), so you don't have to care for it.
 
 You can also force code formatting by running the command `npm run prettier`.
 
-# What's in the box
+## What's in the box
 
 The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http://www.typescriptlang.org) and
 [Sass](http://sass-lang.com). The translation files use the common [JSON](http://www.json.org) format.
 
-#### Tools
+### Tools
 
 Development, build and quality processes are based on [angular-cli](https://github.com/angular/angular-cli) and
 [NPM scripts](https://docs.npmjs.com/misc/scripts), which includes:
@@ -191,7 +213,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
 - Automatic code formatting with [Prettier](https://prettier.io)
 
-#### Libraries
+### Libraries
 
 - [Angular](https://angular.io)
 - [Angular Material](https://material.angular.io)
@@ -201,7 +223,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [ngx-translate](https://github.com/ngx-translate/core)
 - [Lodash](https://lodash.com)
 
-#### Coding guides
+### Coding guides
 
 - [Angular](docs/coding-guides/angular.md)
 - [TypeScript](docs/coding-guides/typescript.md)
@@ -210,7 +232,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Unit tests](docs/coding-guides/unit-tests.md)
 - [End-to-end tests](docs/coding-guides/e2e-tests.md)
 
-#### Other documentation
+### Other documentation
 
 - [I18n guide](docs/i18n.md)
 - [Working behind a corporate proxy](docs/corporate-proxy.md)
