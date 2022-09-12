@@ -6,7 +6,7 @@ import { FloorsComponent } from './floors.component';
 
 const routes: Routes = [
   // Module is lazy loaded, see app-routing.module.ts
-  { path: '', component: FloorsComponent, data: { title: marker('About') } },
+  { path: '', component: FloorsComponent, data: { title: marker('Salas') } },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
