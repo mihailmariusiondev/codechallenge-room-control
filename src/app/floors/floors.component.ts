@@ -60,7 +60,6 @@ export class FloorsComponent implements OnInit {
   }
 
   getRoomsByName(name: string) {
-    console.log(name);
     this.isLoading = true;
     this.roomService
       .getRoomsByName(name)
