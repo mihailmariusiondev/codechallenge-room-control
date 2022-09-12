@@ -11,7 +11,10 @@ export class RoomService {
   constructor(private httpClient: HttpClient) {}
 
   getRooms(): Observable<Room[]> {
-    return this.httpClient.get<Room[]>('/rooms').pipe(
+    let _params = new HttpParams();
+    _params = _params.set('_sort', 'name');
+    _params = _params.set('_order', 'asc');
+    return this.httpClient.get<Room[]>('/rooms', { params: _params }).pipe(
       map((body: Room[]) => body),
       catchError(() => of([]))
     );
@@ -36,8 +39,11 @@ export class RoomService {
     );
   }
 
-  getRoomsByName(name: string): Observable<Room[]> {
-    return this.httpClient.get<Room[]>(`/rooms?name_like=${name}`).pipe(
+  getRoomsByName(name: string, id: number): Observable<Room[]> {
+    let _params = new HttpParams();
+    _params = _params.set('name_like', name);
+    _params = _params.set('floor_id', id);
+    return this.httpClient.get<Room[]>('/rooms', { params: _params }).pipe(
       map((body: Room[]) => body),
       catchError(() => of([]))
     );

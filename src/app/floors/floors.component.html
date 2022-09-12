@@ -31,7 +31,7 @@
         [isLoading]="isLoading"
         [includeCreateButton]="false"
         (buttonRefreshEvent)="getRoomsByFloorId(selectedFloor.id)"
-        (searchQueryEvent)="getRoomsByName($event)"
+        (searchQueryEvent)="getRoomsByName($event, selectedFloor.id)"
         (buttonCreateEvent)="openDialog(action.CREATE)"
       >
       </app-searchbar>

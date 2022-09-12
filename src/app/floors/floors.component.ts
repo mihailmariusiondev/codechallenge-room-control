@@ -59,10 +59,10 @@ export class FloorsComponent implements OnInit {
       });
   }
 
-  getRoomsByName(name: string) {
+  getRoomsByName(name: string, floor: number) {
     this.isLoading = true;
     this.roomService
-      .getRoomsByName(name)
+      .getRoomsByName(name, floor)
       .pipe(
         finalize(() => {
           this.isLoading = false;
