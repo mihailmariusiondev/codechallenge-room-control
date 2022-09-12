@@ -2,7 +2,7 @@
   <h1 fxFill class="page-title">Salas</h1>
 
   <div fxFill>
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" fxFlex.xs="100">
       <mat-select (selectionChange)="onSelectionFloorChange($event.value)" placeholder="Selecciona planta...">
         <mat-option *ngFor="let floor of floors" [value]="floor">
           {{ floor.name }}
@@ -37,8 +37,16 @@
       </app-searchbar>
     </div>
 
-    <div fxLayout="row wrap">
-      <div *ngFor="let room of rooms" fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column">
+    <div fxFill fxLayout="row wrap">
+      <div
+        *ngFor="let room of rooms"
+        fxFlex="25"
+        fxFlex.md="33"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        class="rooms-card-container"
+      >
         <app-room
           [room]="room"
           [isLoading]="isLoading"
