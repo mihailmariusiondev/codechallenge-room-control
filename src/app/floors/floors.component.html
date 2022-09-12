@@ -38,15 +38,7 @@
     </div>
 
     <div fxLayout="row wrap">
-      <div
-        *ngFor="let room of rooms"
-        fxFlex="25"
-        fxFlex.md="33"
-        fxFlex.sm="50"
-        fxFlex.xs="100"
-        fxLayout="column"
-        style="padding: 5px"
-      >
+      <div *ngFor="let room of rooms" fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column">
         <app-room
           [room]="room"
           [isLoading]="isLoading"
