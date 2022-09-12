@@ -37,23 +37,24 @@
       </app-searchbar>
     </div>
 
-    <div
-      fxLayout="row wrap"
-      fxLayout.xs="column"
-      fxFlex="100"
-      fxLayoutAlign="start center"
-      fxLayoutAlign.xs="center center"
-      fxLayoutGap="15px"
-    >
-      <app-room
-        fxFlex.xs="100"
+    <div fxLayout="row wrap">
+      <div
         *ngFor="let room of rooms"
-        [room]="room"
-        [isLoading]="isLoading"
-        (formControlEvent)="updateRoom($event)"
-        (updateButtonEvent)="openDialog(action.UPDATE, $event)"
-        (deleteButtonEvent)="openDialog(action.DELETE, $event)"
-      ></app-room>
+        fxFlex="25"
+        fxFlex.md="33"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        style="padding: 5px"
+      >
+        <app-room
+          [room]="room"
+          [isLoading]="isLoading"
+          (formControlEvent)="updateRoom($event)"
+          (updateButtonEvent)="openDialog(action.UPDATE, $event)"
+          (deleteButtonEvent)="openDialog(action.DELETE, $event)"
+        ></app-room>
+      </div>
     </div>
   </div>
 </div>
