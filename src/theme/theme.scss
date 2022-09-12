@@ -25,11 +25,13 @@ body {
 .mat-form-field-outline-start {
   border-radius: 12px 0 0 12px !important;
   min-width: 12px !important;
+  background-color: white;
 }
 
 /* Set top-right and bottom-right corner radius */
 .mat-form-field-outline-end {
   border-radius: 0 12px 12px 0 !important;
+  background-color: white;
 }
 
 // BUTTONS
